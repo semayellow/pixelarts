@@ -1,7 +1,6 @@
 {
   "artworks": [
     {
-      "id": "1",
       "title": "Cosmic Symbol",
       "image": "images/items/Avaritia_CosmicSymbol.png",
       "alt": "CosmicSymbol",
@@ -10,7 +9,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "2",
       "title": "Cosmic Core",
       "image": "images/items/Avaritia_CosmicCore.png",
       "alt": "CosmicCore",
@@ -19,7 +17,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "3",
       "title": "Cosmic Mind",
       "image": "images/items/Avaritia_CosmicMind.png",
       "alt": "CosmicMind",
@@ -28,7 +25,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "4",
       "title": "Bees Wax Singularity",
       "image": "images/items_animated/Avaritia_BeesWaxSingularity.gif",
       "alt": "BeesWaxSingularity",
@@ -37,7 +33,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "5",
       "title": "Bees Magic Wax Singularity",
       "image": "images/items_animated/Avaritia_BeesMagicWaxSingularity.gif",
       "alt": "BeesMagicWaxSingularity",
@@ -46,7 +41,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "6",
       "title": "Neutronium Singularity",
       "image": "images/items_animated/Avaritia_NeutroniumSingularity.gif",
       "alt": "NeutroniumSingularity",
@@ -55,7 +49,6 @@
       "mod": "Avaritia"
     },
     {
-      "id": "7",
       "title": "Jelly Crystal",
       "image": "images/items/Aether_JellyCrystal.png",
       "alt": "JellyCrystal",
@@ -64,7 +57,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "8",
       "title": "Poisonous Dust",
       "image": "images/items/Aether_PoisonousDust.png",
       "alt": "PoisonousDust",
@@ -73,7 +65,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "9",
       "title": "Poisonous Ingot",
       "image": "images/items/Aether_PoisonousIngot.png",
       "alt": "PoisonousIngot",
@@ -82,7 +73,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "10",
       "title": "Cloud Ingot",
       "image": "images/items/Aether_CloudIngot.png",
       "alt": "CloudIngot",
@@ -91,7 +81,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "11",
       "title": "Cockatrice Feather",
       "image": "images/items/Aether_CockatriceFeather.png",
       "alt": "CockatriceFeather",
@@ -100,7 +89,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "12",
       "title": "Moa Feather",
       "image": "images/items/Aether_MoaFeather.png",
       "alt": "MoaFeather",
@@ -109,7 +97,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "13",
       "title": "Gravitite",
       "image": "images/items/Aether_Gravitite.png",
       "alt": "Gravitite",
@@ -118,7 +105,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "14",
       "title": "Ambrosium Block",
       "image": "images/blocks/Aether_AmbrosiumBlock.png",
       "alt": "AmbrosiumBlock",
@@ -127,7 +113,6 @@
       "mod": "The Aether II"
     },
     {
-      "id": "15",
       "title": "Bloody Iridium",
       "image": "images/items/BloodMagic_BloodyIridium.png",
       "alt": "BloodyIridium",
@@ -136,7 +121,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "16",
       "title": "Bloody Iridium Plate",
       "image": "images/items/BloodMagic_BloodyIridiumPlate.png",
       "alt": "BloodyIridiumPlate",
@@ -145,7 +129,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "17",
       "title": "Reinforced Organic Slate",
       "image": "images/items/BloodMagic_ReinforcedOrganicSlate.png",
       "alt": "ReinforcedOrganicSlate",
@@ -154,7 +137,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "18",
       "title": "Universal Catalyst",
       "image": "images/items/BloodMagic_UniversalCatalyst.png",
       "alt": "UniversalCatalyst",
@@ -163,7 +145,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "19",
       "title": "Necromancy Ingot",
       "image": "images/items/BloodMagic_NecromancyIngot.png",
       "alt": "NecromancyIngot",
@@ -172,7 +153,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "20",
       "title": "Demon-protection Belt",
       "image": "images/items/BloodMagic_DemonProtectionBelt.png",
       "alt": "DemonProtectionBelt",
@@ -181,7 +161,6 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "21",
       "title": "Talisman of a BrokenSoul",
       "image": "images/items/BloodMagic_TalismanOfaBrokenSoul.png",
       "alt": "BloodyIridiumPlate",
@@ -190,13 +169,164 @@
       "mod": "BloodMagic"
     },
     {
-      "id": "22",
       "title": "Amorphous Block",
       "image": "images/blocks/BloodMagic_AmorphousBlock.png",
       "alt": "AmorphousBlock",
       "type": "block",
       "size": "16×16",
       "mod": "BloodMagic"
+    },
+    {
+      "title": "Microplanet Of Elements",
+      "image": "images/items/Botania_MicroplanetOfElements.png",
+      "alt": "MicroplanetOfElements",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Botania"
+    },
+     {
+      "title": "Microplanet of the Seasons",
+      "image": "images/items/Botania_MicroplanetOfTheSeasons.png",
+      "alt": "MicroplanetOfTheSeasons",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Botania"
+    },
+     {
+      "title": "The World Base",
+      "image": "images/items/Botania_TheWorldBase.png",
+      "alt": "TheWorldBase",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Botania"
+    },
+     {
+      "title": "The World",
+      "image": "images/items/Botania_TheWorld.png",
+      "alt": "MicroplanetOfElements",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Botania"
+    },
+     {
+      "title": "Yggdrasil",
+      "image": "images/items/Botania_Yggdrasil.png",
+      "alt": "Yggdrasil",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Botania"
+    },
+    {
+      "title": "Reinforced Living Rock Block",
+      "image": "images/blocks/Botania_ReinforcedLivingRockBlock.png",
+      "alt": "ReinforcedLivingRockBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Botania"
+    },
+    {
+      "title": "Reinforced Living Wood Block",
+      "image": "images/blocks/Botania_ReinforcedLivingWoodBlock.png",
+      "alt": "ReinforcedLivingWoodBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Botania"
+    },
+    {
+      "title": "Manairidium Block",
+      "image": "images/blocks/Botania_ManairidiumBlock.png",
+      "alt": "ManairidiumBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Botania"
+    },
+    {
+      "title": "Bifröst Block",
+      "image": "images/blocks/Botania_BufrostBlock.png",
+      "alt": "BufrostBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Botania"
+    },
+    {
+      "title": "Forgotten Ingot",
+      "image": "images/items/AdvancedBotany_ForgottenIngot.png",
+      "alt": "ForgottenIngot",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Advanced Botany"
+    },
+    {
+      "title": "Mithrill Plate",
+      "image": "images/items/AdvancedBotany_MithrillPlate.png",
+      "alt": "MithrillPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Advanced Botany"
+    },
+     {
+      "title": "Mithrill Elementary Nucleus",
+      "image": "images/items/AdvancedBotany_MithrillElementaryNucleus.png",
+      "alt": "MithrillElementaryNucleus",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Advanced Botany"
+    },
+    {
+      "title": "Nebula Ingot",
+      "image": "images/items/AdvancedBotany_NebulaIngot.png",
+      "alt": "NebulaIngot",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Advanced Botany"
+    },
+    {
+      "title": "Nebula Plate",
+      "image": "images/items/AdvancedBotany_NebulaPlate.png",
+      "alt": "NebulaPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Advanced Botany"
+    },
+    {
+      "title": "Nebula Block",
+      "image": "images/blocks/AdvancedBotany_NebulaBlock.png",
+      "alt": "NebulaBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Advanced Botany"
+    },
+    {
+      "title": "Elvorium Plate",
+      "image": "images/items/Alfheim_ElvoriumPlate.png",
+      "alt": "ElvoriumPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Alfheim"
+    },
+    {
+      "title": "Mauftrium Plate",
+      "image": "images/items/Alfheim_MauftriumPlate.png",
+      "alt": "MauftriumPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Alfheim"
+    },
+    {
+      "title": "Matter Rune",
+      "image": "images/items/IndustrialUpgrade_MatterRune.png",
+      "alt": "MatterRune",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Melted Iridium Plate",
+      "image": "images/items/IndustrialUpgrade_MeltedIridiumPlate.png",
+      "alt": "MeltedIridiumPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
     }
   ]
 }
