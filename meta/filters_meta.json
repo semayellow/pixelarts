@@ -1,7 +1,7 @@
 {
   "types": [
-    { "id": "item",          "label": "Item" },
-    { "id": "animated item", "label": "Animated Item" },
-    { "id": "block",         "label": "Block" }
+    { "id": "item",          "label": "Items" },
+    { "id": "animated item", "label": "Animated Items" },
+    { "id": "block",         "label": "Blocks" }
   ]
 }

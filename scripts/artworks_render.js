@@ -68,31 +68,116 @@
 
     /* ---------- 4. Сообщаем всем, что галерея готова ---------- */
     document.dispatchEvent(new CustomEvent('gallery:ready'));
+    /* ---------- Drag-to-rotate для .block-3d ---------- */
+    initBlockRotation();
   }
 
   /* ---------- Шаблон карточки ---------- */
-  function cardTemplate(a) {
-    return `
-      <article class="card"
-               data-type="${escapeAttr(a.type || '')}"
-               data-mod="${escapeAttr(a.mod || '')}"
-               data-artwork-id="${escapeAttr(a.id || '')}">
-        <div class="art">
-          <img class="pixel-art"
-               src="${escapeAttr(a.image)}"
-               alt="${escapeAttr(a.alt || a.title || '')}"
-               loading="lazy">
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">${escapeHtml(a.title || '')}</h3>
-          ${a.size ? `<div class="size">${escapeHtml(a.size)}</div>` : ''}
-          <div class="badges">
-            ${a.mod  ? `<span class="badge">${escapeHtml(a.mod)}</span>` : ''}
-            ${a.type ? `<span class="badge type">${escapeHtml(typeLabel(a.type))}</span>` : ''}
+    function cardTemplate(a) {
+      const isBlock = (a.type || '').trim() === 'block';
+      return `
+        <article class="card"
+                 data-type="${escapeAttr(a.type || '')}"
+                 data-mod="${escapeAttr(a.mod || '')}"
+                 data-artwork-id="${escapeAttr(a.id || '')}">
+          <div class="art">
+            ${isBlock ? blockTemplate(a) : imageTemplate(a)}
           </div>
+          <div class="card-body">
+            <h3 class="card-title">${escapeHtml(a.title || '')}</h3>
+            ${a.size ? `<div class="size">${escapeHtml(a.size)}</div>` : ''}
+            <div class="badges">
+              ${a.mod  ? `<span class="badge">${escapeHtml(a.mod)}</span>` : ''}
+              ${a.type ? `<span class="badge type">${escapeHtml(typeLabel(a.type))}</span>` : ''}
+            </div>
+          </div>
+        </article>`;
+    }
+
+    /* Обычное изображение — item / animated item */
+    function imageTemplate(a) {
+      return `<img class="pixel-art"
+                   src="${escapeAttr(a.image)}"
+                   alt="${escapeAttr(a.alt || a.title || '')}"
+                   loading="lazy">`;
+    }
+
+    /* Куб — одно изображение на все 6 граней */
+    function blockTemplate(a) {
+      const url = escapeAttr(a.image);
+      const face = cls =>
+        `<div class="face ${cls}" style="background-image:url('${url}')"></div>`;
+
+      return `
+        <div class="block-3d" aria-label="${escapeAttr(a.alt || a.title || 'Block preview')}">
+          ${face('front')}
+          ${face('back')}
+          ${face('right')}
+          ${face('left')}
+          ${face('top')}
+          ${face('bottom')}
         </div>
-      </article>`;
-  }
+        <button class="block-reset" type="button" aria-label="Reset rotation" title="Reset rotation">⟲</button>`;
+    }
+
+    function initBlockRotation() {
+      const cubes = document.querySelectorAll('.block-3d');
+
+      cubes.forEach(function (cube) {
+        const START_X = -25;
+        const START_Y = -35;
+
+        let rotX = START_X;
+        let rotY = START_Y;
+        let startX = 0, startY = 0;
+        let baseX  = 0, baseY  = 0;
+        let dragging = false;
+
+        function apply() {
+          cube.style.transform =
+            'translate(-50%, -50%) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+        }
+        apply();
+
+        cube.addEventListener('pointerdown', function (e) {
+          dragging = true;
+          cube.classList.add('dragging');
+          cube.setPointerCapture(e.pointerId);
+          startX = e.clientX;
+          startY = e.clientY;
+          baseX = rotX;
+          baseY = rotY;
+        });
+
+        cube.addEventListener('pointermove', function (e) {
+          if (!dragging) return;
+          rotX = baseX - (e.clientY - startY) * 0.5;
+          rotY = baseY + (e.clientX - startX) * 0.5;
+          apply();
+        });
+
+        function stop(e) {
+          if (!dragging) return;
+          dragging = false;
+          cube.classList.remove('dragging');
+          try { cube.releasePointerCapture(e.pointerId); } catch (_) {}
+        }
+        cube.addEventListener('pointerup', stop);
+        cube.addEventListener('pointercancel', stop);
+
+        var resetBtn = cube.parentElement.querySelector('.block-reset');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            rotX = START_X;
+            rotY = START_Y;
+            cube.style.transition = 'transform .35s ease';
+            apply();
+            setTimeout(function () { cube.style.transition = ''; }, 400);
+          });
+        }
+      });
+    }
 
   function typeLabel(id) {
     // "animated item" → "Animated Item"

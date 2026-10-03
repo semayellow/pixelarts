@@ -199,7 +199,6 @@ button { font: inherit; }
   color: var(--accent-soft);
 }
 
-/* Стрелка ▾ */
 .mod-select::after {
   content: "";
   position: absolute;
@@ -214,7 +213,6 @@ button { font: inherit; }
   pointer-events: none;
 }
 
-/* Сам список */
 .mod-select-list {
   display: none;
   position: absolute;
@@ -253,7 +251,7 @@ button { font: inherit; }
 /* ---------- Gallery ---------- */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -280,7 +278,7 @@ button { font: inherit; }
     8px 8px 0 rgba(0, 0, 0, .55);
 }
 
-/* Art frame: plain dark green panel */
+/* Art frame */
 .art {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -295,6 +293,7 @@ button { font: inherit; }
   width: 86%;
   height: 86%;
   shape-rendering: crispEdges;
+  image-rendering: pixelated;
 }
 
 /* Body */
@@ -320,7 +319,7 @@ button { font: inherit; }
   letter-spacing: .04em;
 }
 
-/* ---------- Badges (внутри .card-body) ---------- */
+/* ---------- Badges ---------- */
 .badges {
   display: flex;
   flex-wrap: wrap;
@@ -344,7 +343,6 @@ button { font: inherit; }
   color: #cfd6cc;
   border-color: #7b8478;
 }
-
 
 /* ---------- About ---------- */
 .about {
@@ -387,7 +385,6 @@ button { font: inherit; }
 }
 .footer .mono-accent { color: var(--accent); }
 
-
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .about { grid-template-columns: 1fr; }
@@ -404,3 +401,112 @@ button { font: inherit; }
   .card-title { font-size: 14px; }
   .badge { font-size: 10px; padding: 3px 6px; }
 }
+
+/* ---------- 3D block preview ---------- */
+
+/* .art становится 3D-сценой и контейнером для cqw-единиц */
+.art {
+  perspective: 700px;
+  container-type: size;
+}
+
+/* Обёртка куба */
+.block-3d {
+  --c: 55cqw;                    /* длина ребра = 55% ширины .art */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--c);
+  height: var(--c);
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateX(-25deg) rotateY(-35deg);
+  transition: transform .35s ease;
+}
+
+/* Грань куба */
+.block-3d .face {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #1a1a1a;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+  backface-visibility: hidden;
+}
+
+/* Раскладываем 6 граней вокруг центра */
+.block-3d .front  { transform: translateZ(calc(var(--c) /  2)); }
+.block-3d .back   { transform: rotateY(180deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .right  { transform: rotateY( 90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .left   { transform: rotateY(-90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .top    { transform: rotateX( 90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .bottom { transform: rotateX(-90deg) translateZ(calc(var(--c) / 2)); }
+
+/* Затенение дальних граней для читаемости */
+.block-3d .back,
+.block-3d .left   { filter: brightness(.78); }
+.block-3d .right  { filter: brightness(.9);  }
+.block-3d .top    { filter: brightness(1.05); }
+.block-3d .bottom { filter: brightness(.6);  }
+
+
+.block-3d {
+  /* уже есть в вашем файле */
+  cursor: grab;
+  user-select: none;
+  touch-action: none;           /* нужно, чтобы тач не скроллил страницу при drag */
+  will-change: transform;
+}
+.block-3d.dragging {
+  cursor: grabbing;
+  transition: none;             /* без плавности во время перетаскивания */
+}
+
+/* ---------- Reset button для 3D-блока ---------- */
+.block-reset {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: rgba(15, 26, 18, .85);
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity .15s ease, transform .15s ease,
+              border-color .12s ease, color .12s ease, background-color .12s ease;
+}
+.card:hover .block-reset,
+.block-reset:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.block-reset:hover,
+.block-reset:focus-visible {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* ---------- Empty state (ничего не найдено) ---------- */
+.empty {
+  grid-column: 1 / -1;
+  padding: 36px;
+  border: 2px dashed var(--line);
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+
