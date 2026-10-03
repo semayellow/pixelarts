@@ -1,5 +1,5 @@
 /* ============================================================
-   filters.js — фильтрация карточек по типу и моду.
+   filters.js — фильтрация карточек по типу, моду и размеру.
    Работает после события "gallery:ready".
    ============================================================ */
 
@@ -26,57 +26,69 @@
     /* ---------- Состояние ---------- */
     let activeType = 'all';
     let activeMod  = 'all';
+    let activeSize = 'all';
 
-    /* ---------- Кастомный дропдаун ---------- */
-    const modRoot  = document.getElementById('modFilter');
-    const modList  = modRoot?.querySelector('.mod-select-list');
-    const modValue = modRoot?.querySelector('.mod-select-value');
+    /* ---------- Дропдауны ---------- */
+    function setupDropdown(rootId, onChange) {
+      const root  = document.getElementById(rootId);
+      if (!root) return;
 
-    function closeMod() {
-      if (!modRoot) return;
-      modRoot.classList.remove('open');
-      modRoot.setAttribute('aria-expanded', 'false');
-    }
-    function setMod(mod) {
-      activeMod = mod;
-      if (modValue) modValue.textContent = mod === 'all' ? 'All mods' : mod;
-      modList?.querySelectorAll('li').forEach(li => {
-        li.setAttribute('aria-selected', li.dataset.value === mod ? 'true' : 'false');
-      });
-      applyFilters();
-    }
+      const list  = root.querySelector('.mod-select-list');
+      const value = root.querySelector('.mod-select-value');
 
-    if (modRoot) {
-      modRoot.addEventListener('click', (e) => {
+      function close() {
+        root.classList.remove('open');
+        root.setAttribute('aria-expanded', 'false');
+      }
+
+      function set(val, label) {
+        value.textContent = label;
+        list.querySelectorAll('li').forEach(li => {
+          li.setAttribute('aria-selected',
+            li.dataset.value === val ? 'true' : 'false');
+        });
+        onChange(val);
+      }
+
+      root.addEventListener('click', (e) => {
         if (e.target.closest('.mod-select-list li')) return;
-        modRoot.classList.toggle('open');
-        modRoot.setAttribute('aria-expanded', modRoot.classList.contains('open'));
+        root.classList.toggle('open');
+        root.setAttribute('aria-expanded', root.classList.contains('open'));
       });
 
-      modRoot.addEventListener('keydown', (e) => {
+      root.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          modRoot.classList.toggle('open');
-          modRoot.setAttribute('aria-expanded', modRoot.classList.contains('open'));
+          root.classList.toggle('open');
+          root.setAttribute('aria-expanded', root.classList.contains('open'));
         } else if (e.key === 'Escape') {
-          closeMod();
+          close();
         }
       });
 
-      modList?.addEventListener('click', (e) => {
+      list.addEventListener('click', (e) => {
         const li = e.target.closest('li[data-value]');
         if (!li) return;
-        setMod(li.dataset.value);
-        closeMod();
+        set(li.dataset.value, li.textContent.trim());
+        close();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!root.contains(e.target)) close();
       });
     }
 
-    // Клик вне дропдауна закрывает его
-    document.addEventListener('click', (e) => {
-      if (modRoot && !modRoot.contains(e.target)) closeMod();
+    setupDropdown('modFilter', (val) => {
+      activeMod = val;
+      applyFilters();
     });
 
-    /* ---------- Фильтрация карточек ---------- */
+    setupDropdown('sizeFilter', (val) => {
+      activeSize = val;
+      applyFilters();
+    });
+
+    /* ---------- Фильтрация ---------- */
     function matchesType(cardType, filter) {
       if (filter === 'all') return true;
       return cardType.trim() === filter;
@@ -87,8 +99,9 @@
 
       cards.forEach(card => {
         const typeOk = matchesType(card.dataset.type || '', activeType);
-        const modOk  = activeMod === 'all' || card.dataset.mod === activeMod;
-        const show   = typeOk && modOk;
+        const modOk  = activeMod  === 'all' || card.dataset.mod  === activeMod;
+        const sizeOk = activeSize === 'all' || card.dataset.size === activeSize;
+        const show   = typeOk && modOk && sizeOk;
 
         card.style.display = show ? '' : 'none';
         if (show) visibleCount++;

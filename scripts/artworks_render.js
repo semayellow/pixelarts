@@ -38,18 +38,24 @@
       ),
     ].join('');
 
-    filtersEl.innerHTML =
-      typeButtons +
-      (existingSelect
-        ? existingSelect.outerHTML
-        : `<div class="mod-filter">
-             <div class="mod-select" id="modFilter" tabindex="0" role="combobox"
-                  aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by mod">
-               <span class="mod-select-value">All mods</span>
-               <ul class="mod-select-list" role="listbox"></ul>
-             </div>
-           </div>`);
-    /* ---------- 3. Дропдаун модов ---------- */
+    filtersEl.innerHTML = typeButtons + `
+      <div class="mod-filter">
+        <div class="mod-select" id="modFilter" tabindex="0" role="combobox"
+             aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by mod">
+          <span class="mod-select-value">All mods</span>
+          <ul class="mod-select-list" role="listbox"></ul>
+        </div>
+      </div>
+      <div class="mod-filter">
+        <div class="mod-select" id="sizeFilter" tabindex="0" role="combobox"
+             aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by size">
+          <span class="mod-select-value">All sizes</span>
+          <ul class="mod-select-list" role="listbox"></ul>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button"
+              aria-label="Theme: dark green" title="Theme: dark green"></button>`;
+    /* ---------- 3. Дропдауны: моды и размеры ---------- */
     const modSelectRoot = document.getElementById('modFilter');
     if (modSelectRoot) {
       const listEl  = modSelectRoot.querySelector('.mod-select-list');
@@ -66,10 +72,28 @@
       valueEl.textContent = 'All mods';
     }
 
+    const sizeSelectRoot = document.getElementById('sizeFilter');
+    if (sizeSelectRoot) {
+      const listEl  = sizeSelectRoot.querySelector('.mod-select-list');
+      const valueEl = sizeSelectRoot.querySelector('.mod-select-value');
+
+      const sizes = ['all', ...[...new Set(artworks.map(a => a.size).filter(Boolean))]
+        .sort((a, b) => parseInt(a) - parseInt(b))];
+
+      listEl.innerHTML = sizes.map(size => `
+        <li role="option" data-value="${escapeAttr(size)}"
+            ${size === 'all' ? 'aria-selected="true"' : ''}>
+          ${size === 'all' ? 'All sizes' : escapeHtml(size)}
+        </li>`).join('');
+
+      valueEl.textContent = 'All sizes';
+    }
+
     /* ---------- 4. Сообщаем всем, что галерея готова ---------- */
     document.dispatchEvent(new CustomEvent('gallery:ready'));
     /* ---------- Drag-to-rotate для .block-3d ---------- */
     initBlockRotation();
+    initThemeToggle();
   }
 
   /* ---------- Шаблон карточки ---------- */
@@ -79,6 +103,7 @@
         <article class="card"
                  data-type="${escapeAttr(a.type || '')}"
                  data-mod="${escapeAttr(a.mod || '')}"
+                 data-size="${escapeAttr(a.size || '')}"
                  data-artwork-id="${escapeAttr(a.id || '')}">
           <div class="art">
             ${isBlock ? blockTemplate(a) : imageTemplate(a)}
@@ -176,6 +201,33 @@
             setTimeout(function () { cube.style.transition = ''; }, 400);
           });
         }
+      });
+    }
+
+    /* ---------- Theme cycle: green → white → black ---------- */
+    function initThemeToggle() {
+      const btn  = document.getElementById('themeToggle');
+      const root = document.querySelector('.app-root');
+      if (!btn || !root) return;
+
+      const states = ['green', 'white', 'black'];
+      const labels = {
+        green: 'Theme: dark green',
+        white: 'Theme: white',
+        black: 'Theme: black',
+      };
+      let i = 0;
+
+      function apply() {
+        root.dataset.theme = states[i];
+        btn.title = labels[states[i]];
+        btn.setAttribute('aria-label', labels[states[i]]);
+      }
+      apply();
+
+      btn.addEventListener('click', () => {
+        i = (i + 1) % states.length;
+        apply();
       });
     }
 

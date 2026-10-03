@@ -510,3 +510,37 @@ button { font: inherit; }
   letter-spacing: .04em;
 }
 
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  width: 36px;
+  align-self: stretch;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: var(--panel);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--accent-soft);
+}
+
+/* ---------- Theme states ---------- */
+
+/* Белая тема: фон рамок карточек и кнопки — белый */
+.app-root[data-theme="white"] .art,
+.app-root[data-theme="white"] .theme-toggle {
+  background-color: #ffffff;
+}
+
+/* Чёрная тема */
+.app-root[data-theme="black"] .art,
+.app-root[data-theme="black"] .theme-toggle {
+  background-color: #000000;
+}
+
+/* Явно возвращаем зелёный для дефолтного состояния */
+.app-root[data-theme="green"] .art,
+.app-root[data-theme="green"] .theme-toggle {
+  background-color: var(--panel);
+}
