@@ -6,7 +6,9 @@
       "alt": "CosmicSymbol",
       "type": "item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "referenced_image": "images/references/AdvancedBotany_ForgottenIngot.png",
+      "referenced_text": "[Avaritia] Reference description"
     },
     {
       "title": "Cosmic Core",
