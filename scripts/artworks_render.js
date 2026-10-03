@@ -117,6 +117,7 @@
     document.dispatchEvent(new CustomEvent('gallery:ready'));
     /* ---------- Drag-to-rotate для .block-3d ---------- */
     initBlockRotation();
+    initBlockModeToggle();
     initThemeToggle();
     initGridToggle();
   }
@@ -137,6 +138,7 @@
 
       // «16×16» → 16; «32×32» → 32; fallback 16
       const gridCount = parseInt(a.size, 10) || 16;
+      const blockModeAttr = isBlock ? ' data-block-mode="3d"' : '';
 
       return `
         <article class="card"
@@ -172,13 +174,19 @@
     }
 
     /* Куб — одно изображение на все 6 граней */
-    function blockTemplate(a) {
-      const url = escapeAttr(a.image);
+    function blockTemplate(a, enchanted) {
+      const url  = escapeAttr(a.image);
+      const alt  = escapeAttr(a.alt || a.title || 'Block preview');
       const face = cls =>
         `<div class="face ${cls}" style="background-image:url('${url}')"></div>`;
 
       return `
-        <div class="block-3d" aria-label="${escapeAttr(a.alt || a.title || 'Block preview')}">
+        <img class="pixel-art block-image"
+             src="${url}"
+             alt="${alt}"
+             loading="lazy">
+
+        <div class="block-3d${enchanted || ''}" aria-label="${alt}">
           ${face('front')}
           ${face('back')}
           ${face('right')}
@@ -186,9 +194,26 @@
           ${face('top')}
           ${face('bottom')}
         </div>
-        <button class="block-reset" type="button" aria-label="Reset rotation" title="Reset rotation">⟲</button>`;
-    }
 
+        <button class="block-mode-toggle" type="button"
+                aria-pressed="false"
+                aria-label="Toggle 3D / 2D view"
+                title="Toggle 3D / 2D view">
+          <svg class="icon-cube" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+            <path d="M8 1 L14 4 L14 12 L8 15 L2 12 L2 4 Z"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 4 L8 7 L14 4 M8 7 L8 15"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <svg class="icon-flat" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+            <rect x="2" y="2" width="12" height="12"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+        </button>
+
+        <button class="block-reset" type="button"
+                aria-label="Reset rotation" title="Reset rotation">⟲</button>`;
+    }
     function initBlockRotation() {
       const cubes = document.querySelectorAll('.block-3d');
 
@@ -286,6 +311,21 @@
         root.dataset.grid = on ? 'off' : 'on';
         btn.classList.toggle('active', !on);
         btn.setAttribute('aria-pressed', String(!on));
+      });
+    }
+
+    function initBlockModeToggle() {
+      document.querySelectorAll('.block-mode-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const art = btn.closest('.art');
+          if (!art) return;
+
+          const current = art.dataset.blockMode || '3d';
+          const next    = current === '3d' ? '2d' : '3d';
+          art.dataset.blockMode = next;
+          btn.setAttribute('aria-pressed', String(next === '2d'));
+        });
       });
     }
 

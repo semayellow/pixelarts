@@ -641,3 +641,57 @@ button { font: inherit; }
   opacity: 0;
   transition: opacity .15s ease;
 }
+
+/* ---------- Block mode toggle (2D / 3D) ---------- */
+
+/* По умолчанию блок в 3D: 2D-картинка и «плоская» иконка скрыты */
+.art--block .block-image { display: none; }
+.art--block .icon-flat   { display: none; }
+
+/* В 2D-режиме: 3D-сцена и reset скрыты, показана плоская картинка */
+.art--block[data-block-mode="2d"] .block-3d,
+.art--block[data-block-mode="2d"] .block-reset {
+  display: none;
+}
+.art--block[data-block-mode="2d"] .block-image { display: block; }
+.art--block[data-block-mode="2d"] .icon-cube   { display: none; }
+.art--block[data-block-mode="2d"] .icon-flat   { display: block; }
+
+/* Кнопка в левом верхнем углу .art */
+.block-mode-toggle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: rgba(15, 26, 18, .85);
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity .15s ease, transform .15s ease,
+              border-color .12s ease, color .12s ease, background-color .12s ease;
+}
+.card:hover .block-mode-toggle,
+.block-mode-toggle:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.block-mode-toggle:hover,
+.block-mode-toggle:focus-visible {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+  outline: none;
+}
+.block-mode-toggle svg { display: block; }
+
+/* ---------- Сетка работает и на 2D-блоках ---------- */
+.app-root[data-grid="on"] .art--block[data-block-mode="2d"]::after {
+  opacity: 1;
+}
