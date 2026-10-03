@@ -544,3 +544,100 @@ button { font: inherit; }
 .app-root[data-theme="green"] .theme-toggle {
   background-color: var(--panel);
 }
+
+/* ---------- Grid toggle button ---------- */
+.grid-toggle {
+  width: 36px;
+  align-self: stretch;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+.grid-toggle svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+.grid-toggle:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent-soft);
+}
+.grid-toggle.active {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+}
+
+/* ---------- Pixel grid overlay (items only) ---------- */
+
+.art::after {
+  content: "";
+  position: absolute;
+  inset: 7%;                                /* совпадает с .pixel-art */
+  pointer-events: none;
+  z-index: 3;
+
+  /* Число клеток задаётся инлайном в --grid-count */
+  --cell: calc(100% / var(--grid-count, 16));
+
+  background-image:
+    linear-gradient(to right,  rgba(255, 255, 255, .35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .35) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell), var(--cell) var(--cell);
+
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+/* Показываем сетку только если data-grid="on" и это не блок */
+.app-root[data-grid="on"] .art:not(.art--block)::after {
+  opacity: 1;
+}
+
+/* Блоки сетку не получают ни при каком состоянии */
+.app-root[data-grid="on"] .art--block::after {
+  opacity: 0;
+}
+
+.art::after {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  pointer-events: none;
+  z-index: 3;
+
+  --cell: calc(100% / var(--grid-count, 16));
+  --grid-line: rgba(255, 255, 255, .35);
+
+  background-image:
+    /* вертикальные линии — тайлами */
+    linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+    /* горизонтальные линии — тайлами */
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    /* правая граничная линия — одиночная */
+    linear-gradient(to left,   var(--grid-line) 1px, transparent 1px),
+    /* нижняя граничная линия — одиночная */
+    linear-gradient(to top,    var(--grid-line) 1px, transparent 1px);
+
+  background-size:
+    var(--cell) var(--cell),
+    var(--cell) var(--cell),
+    100% 100%,
+    100% 100%;
+
+  background-repeat:
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat;
+
+  opacity: 0;
+  transition: opacity .15s ease;
+}

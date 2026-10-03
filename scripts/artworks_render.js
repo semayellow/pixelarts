@@ -53,8 +53,32 @@
           <ul class="mod-select-list" role="listbox"></ul>
         </div>
       </div>
-      <button class="theme-toggle" id="themeToggle" type="button"
-              aria-label="Theme: dark green" title="Theme: dark green"></button>`;
+        <button class="theme-toggle" id="themeToggle" type="button"
+          aria-label="Theme: dark green" title="Theme: dark green"></button>
+      <button class="grid-toggle" id="gridToggle" type="button"
+        aria-pressed="false" aria-label="Toggle pixel grid" title="Toggle pixel grid">
+          <svg viewBox="0 0 15 15" width="26" height="26" aria-hidden="true">
+            <rect x="0"  y="0"  width="3" height="3" fill="currentColor"/>
+            <rect x="4"  y="0"  width="3" height="3" fill="currentColor"/>
+            <rect x="8"  y="0"  width="3" height="3" fill="currentColor"/>
+            <rect x="12" y="0"  width="3" height="3" fill="currentColor"/>
+
+            <rect x="0"  y="4"  width="3" height="3" fill="currentColor"/>
+            <rect x="4"  y="4"  width="3" height="3" fill="currentColor"/>
+            <rect x="8"  y="4"  width="3" height="3" fill="currentColor"/>
+            <rect x="12" y="4"  width="3" height="3" fill="currentColor"/>
+
+            <rect x="0"  y="8"  width="3" height="3" fill="currentColor"/>
+            <rect x="4"  y="8"  width="3" height="3" fill="currentColor"/>
+            <rect x="8"  y="8"  width="3" height="3" fill="currentColor"/>
+            <rect x="12" y="8"  width="3" height="3" fill="currentColor"/>
+
+            <rect x="0"  y="12" width="3" height="3" fill="currentColor"/>
+            <rect x="4"  y="12" width="3" height="3" fill="currentColor"/>
+            <rect x="8"  y="12" width="3" height="3" fill="currentColor"/>
+            <rect x="12" y="12" width="3" height="3" fill="currentColor"/>
+          </svg>
+        </button>`;
     /* ---------- 3. Дропдауны: моды и размеры ---------- */
     const modSelectRoot = document.getElementById('modFilter');
     if (modSelectRoot) {
@@ -94,23 +118,43 @@
     /* ---------- Drag-to-rotate для .block-3d ---------- */
     initBlockRotation();
     initThemeToggle();
+    initGridToggle();
   }
 
   /* ---------- Шаблон карточки ---------- */
     function cardTemplate(a) {
       const isBlock = (a.type || '').trim() === 'block';
+
+      const isEnchanted =
+        a.enchanted === true || a.enchanted === 1 || a.enchanted === 'true';
+
+      const artClass =
+        'art' +
+        (isBlock ? ' art--block' : '') +
+        (isEnchanted ? ' enchanted' : '');
+
+      const glint = (isEnchanted && !isBlock) ? glintTemplate(a.image) : '';
+
+      // «16×16» → 16; «32×32» → 32; fallback 16
+      const gridCount = parseInt(a.size, 10) || 16;
+
       return `
         <article class="card"
                  data-type="${escapeAttr(a.type || '')}"
                  data-mod="${escapeAttr(a.mod || '')}"
                  data-size="${escapeAttr(a.size || '')}"
                  data-artwork-id="${escapeAttr(a.id || '')}">
-          <div class="art">
-            ${isBlock ? blockTemplate(a) : imageTemplate(a)}
+          <div class="${artClass}" style="--grid-count:${gridCount}">
+            ${isBlock
+              ? blockTemplate(a, isEnchanted ? ' enchanted' : '')
+              : imageTemplate(a)}
+            ${glint}
           </div>
+
           <div class="card-body">
             <h3 class="card-title">${escapeHtml(a.title || '')}</h3>
             ${a.size ? `<div class="size">${escapeHtml(a.size)}</div>` : ''}
+
             <div class="badges">
               ${a.mod  ? `<span class="badge">${escapeHtml(a.mod)}</span>` : ''}
               ${a.type ? `<span class="badge type">${escapeHtml(typeLabel(a.type))}</span>` : ''}
@@ -228,6 +272,20 @@
       btn.addEventListener('click', () => {
         i = (i + 1) % states.length;
         apply();
+      });
+    }
+
+    /* ---------- Grid overlay toggle ---------- */
+    function initGridToggle() {
+      const btn  = document.getElementById('gridToggle');
+      const root = document.querySelector('.app-root');
+      if (!btn || !root) return;
+
+      btn.addEventListener('click', () => {
+        const on = root.dataset.grid === 'on';
+        root.dataset.grid = on ? 'off' : 'on';
+        btn.classList.toggle('active', !on);
+        btn.setAttribute('aria-pressed', String(!on));
       });
     }
 
