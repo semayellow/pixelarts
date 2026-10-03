@@ -1,0 +1,31 @@
+{
+  "artworks": [
+    {
+      "id": "1",
+      "title": "Cosmic Symbol",
+      "image": "images/items/Avaritia_CosmicSymbol.png",
+      "alt": "Cosmic Symbol",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Avaritia"
+    },
+    {
+      "id": "2",
+      "title": "Cosmic Core",
+      "image": "images/items/Avaritia_CosmicCore.png",
+      "alt": "Cosmic Core",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Avaritia"
+    },
+    {
+      "id": "3",
+      "title": "Cosmic Mind",
+      "image": "images/items/Avaritia_CosmicMind.png",
+      "alt": "Cosmic Mind",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Avaritia"
+    }
+  ]
+}
