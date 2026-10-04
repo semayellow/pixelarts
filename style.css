@@ -405,7 +405,7 @@ button { font: inherit; }
 /* ---------- 3D block preview ---------- */
 
 /* .art становится 3D-сценой и контейнером для cqw-единиц */
-.art {
+.art--block {
   perspective: 700px;
   container-type: size;
 }
@@ -528,22 +528,17 @@ button { font: inherit; }
 /* ---------- Theme states ---------- */
 
 /* Белая тема: фон рамок карточек и кнопки — белый */
-.app-root[data-theme="white"] .art,
-.app-root[data-theme="white"] .theme-toggle {
-  background-color: #ffffff;
-}
+html[data-theme="white"] .art,
+html[data-theme="white"] .theme-toggle,
+html[data-theme="white"] .reference-popup-image { background-color: #ffffff; }
 
-/* Чёрная тема */
-.app-root[data-theme="black"] .art,
-.app-root[data-theme="black"] .theme-toggle {
-  background-color: #000000;
-}
+html[data-theme="black"] .art,
+html[data-theme="black"] .theme-toggle,
+html[data-theme="black"] .reference-popup-image { background-color: #000000; }
 
-/* Явно возвращаем зелёный для дефолтного состояния */
-.app-root[data-theme="green"] .art,
-.app-root[data-theme="green"] .theme-toggle {
-  background-color: var(--panel);
-}
+html[data-theme="green"] .art,
+html[data-theme="green"] .theme-toggle,
+html[data-theme="green"] .reference-popup-image { background-color: var(--panel); }
 
 /* ---------- Grid toggle button ---------- */
 .grid-toggle {
@@ -580,35 +575,6 @@ button { font: inherit; }
 .art::after {
   content: "";
   position: absolute;
-  inset: 7%;                                /* совпадает с .pixel-art */
-  pointer-events: none;
-  z-index: 3;
-
-  /* Число клеток задаётся инлайном в --grid-count */
-  --cell: calc(100% / var(--grid-count, 16));
-
-  background-image:
-    linear-gradient(to right,  rgba(255, 255, 255, .35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, .35) 1px, transparent 1px);
-  background-size: var(--cell) var(--cell), var(--cell) var(--cell);
-
-  opacity: 0;
-  transition: opacity .15s ease;
-}
-
-/* Показываем сетку только если data-grid="on" и это не блок */
-.app-root[data-grid="on"] .art:not(.art--block)::after {
-  opacity: 1;
-}
-
-/* Блоки сетку не получают ни при каком состоянии */
-.app-root[data-grid="on"] .art--block::after {
-  opacity: 0;
-}
-
-.art::after {
-  content: "";
-  position: absolute;
   inset: 7%;
   pointer-events: none;
   z-index: 3;
@@ -641,6 +607,15 @@ button { font: inherit; }
   opacity: 0;
   transition: opacity .15s ease;
 }
+
+/* Показываем сетку для обычных карточек */
+html[data-grid="on"] .art:not(.art--block)::after { opacity: 1; }
+
+/* Блоки сетку не получают — ни в 3D, ни в 2D через общее правило */
+html[data-grid="on"] .art--block::after           { opacity: 0; }
+
+/* Исключение: блок в 2D-режиме — сетка работает */
+html[data-grid="on"] .art--block[data-block-mode="2d"]::after { opacity: 1; }
 
 /* ---------- Block mode toggle (2D / 3D) ---------- */
 
@@ -691,11 +666,6 @@ button { font: inherit; }
 }
 .block-mode-toggle svg { display: block; }
 
-/* ---------- Сетка работает и на 2D-блоках ---------- */
-.app-root[data-grid="on"] .art--block[data-block-mode="2d"]::after {
-  opacity: 1;
-}
-
 /* ---------- Reference (inactive) button ---------- */
 .reference {
   display: inline-flex;
@@ -707,32 +677,26 @@ button { font: inherit; }
   font-size: 11px;
   line-height: 1.1;
   letter-spacing: .04em;
-  cursor: help;
+  cursor: pointer;                          /* вместо help */
   user-select: none;
   outline: none;
   transition: border-color .12s ease, color .12s ease;
 }
 .reference:hover,
 .reference:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
 }
 
-/* ---------- Reference popup (styled like a card) ---------- */
+/* ---------- Reference popup ---------- */
 .reference-popup {
   position: fixed;
   z-index: 200;
   pointer-events: none;
 
-  width: 220px;
   padding: 10px;
-
   background: var(--surface);
-  border: 2px solid var(--accent);
-  box-shadow:
-    inset 0 0 0 2px var(--surface-inner),
-    0 0 0 1px #000,
-    8px 8px 0 rgba(0, 0, 0, .55);
+  border: 2px solid var(--accent-2);
 
   opacity: 0;
   transform: translateY(4px);
@@ -743,32 +707,90 @@ button { font: inherit; }
   transform: translateY(0);
 }
 
-/* Превью-изображение — как .art у карточки */
+/* Референсы в ряд (по умолчанию) */
+.reference-popup-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.reference-popup-item {
+  width: 200px;
+  flex-shrink: 0;
+}
+
 .reference-popup-image {
   position: relative;
   aspect-ratio: 1 / 1;
+  padding: 7%;
+  box-sizing: border-box;
+
+  background: var(--panel);
+  border: 2px solid var(--accent-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background-color: var(--panel);
-  border: 2px solid #2e5a34;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.reference-popup-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   image-rendering: pixelated;
 }
 
-/* Подпись — как .card-body, но только с текстом */
+/* Сетка на превью попапа */
+.reference-popup-image::after {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  pointer-events: none;
+  z-index: 3;
+
+  --cell: calc(100% / var(--grid-count, 16));
+  --grid-line: rgba(255, 255, 255, .35);
+
+  background-image:
+    linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to left,   var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to top,    var(--grid-line) 1px, transparent 1px);
+
+  background-size:
+    var(--cell) var(--cell),
+    var(--cell) var(--cell),
+    100% 100%,
+    100% 100%;
+
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+html[data-grid="on"] .reference-popup-image::after { opacity: 1; }
+
 .reference-popup-body {
   padding: 10px 2px 2px;
 }
 
 .reference-popup-text {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: .02em;
 }
 
+/* На узких экранах — столбиком */
 @media (max-width: 560px) {
-  .reference-popup { width: 180px; }
+  .reference-popup-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .reference-popup-item {
+    width: 160px;
+  }
 }

@@ -161,7 +161,7 @@
             <div class="badges">
               ${a.mod  ? `<span class="badge">${escapeHtml(a.mod)}</span>` : ''}
               ${a.type ? `<span class="badge type">${escapeHtml(typeLabel(a.type))}</span>` : ''}
-              ${a.referenced_image ? referenceTemplate(a.referenced_image, a.referenced_text) : ''}
+              ${a.references ? referenceTemplate(a.references) : ''}
             </div>
           </div>
         </article>`;
@@ -278,7 +278,7 @@
     /* ---------- Theme cycle: green → white → black ---------- */
     function initThemeToggle() {
       const btn  = document.getElementById('themeToggle');
-      const root = document.querySelector('.app-root');
+      const root = document.documentElement;      // было: .app-root
       if (!btn || !root) return;
 
       const states = ['green', 'white', 'black'];
@@ -305,7 +305,7 @@
     /* ---------- Grid overlay toggle ---------- */
     function initGridToggle() {
       const btn  = document.getElementById('gridToggle');
-      const root = document.querySelector('.app-root');
+      const root = document.documentElement;      // было: .app-root
       if (!btn || !root) return;
 
       btn.addEventListener('click', () => {
@@ -331,73 +331,95 @@
       });
     }
 
-    /* «Неактивная» кнопка-ссылка: показывает referenced-изображение при наведении */
-    /* «Неактивная» кнопка REF: попап с референсом рядом с карточкой */
-    function referenceTemplate(url, text) {
-      const safeUrl  = escapeAttr(url);
-      const safeText = escapeAttr(text || '');
+    /* «Неактивная» кнопка REF: попап с одним или несколькими референсами */
+    function referenceTemplate(refs) {
+      if (!Array.isArray(refs) || !refs.length) return '';
+      const json = escapeAttr(JSON.stringify(refs));
       return `<span class="reference"
                     tabindex="0"
                     role="button"
-                    aria-label="Reference preview"
-                    data-ref-url="${safeUrl}"
-                    data-ref-text="${safeText}">
+                    data-ref-json="${json}">
                 <span>REF</span>
               </span>`;
     }
 
-    /* ---------- REF popups ---------- */
-function initReferenceHovers() {
-  document.querySelectorAll('.reference').forEach(ref => {
-    const url  = ref.dataset.refUrl;
-    const text = ref.dataset.refText || '';
-    if (!url) return;
+   /* ---------- REF popups ---------- */
+    function initReferenceHovers() {
+      document.querySelectorAll('.reference').forEach(ref => {
+        let refs;
+        try {
+          refs = JSON.parse(ref.dataset.refJson || '[]');
+        } catch (_) {
+          return;
+        }
+        if (!Array.isArray(refs) || !refs.length) return;
 
-    let popup = null;
+        let popup = null;
 
-    function build() {
-      const el = document.createElement('div');
-      el.className = 'reference-popup';
-      el.innerHTML = `
-          <div class="reference-popup-image"
-               style="background-image:url('${escapeAttr(url)}')"></div>
-          ${text ? `<div class="reference-popup-body">
-                      <p class="reference-popup-text">${escapeHtml(text)}</p>
-                    </div>` : ''}
-        `;
-      document.body.appendChild(el);
-      return el;
-    }
+        function build() {
+          const card = ref.closest('.card');
+          const artEl = card ? card.querySelector('.art') : null;
+          const gridCount = artEl
+            ? (artEl.style.getPropertyValue('--grid-count').trim() || '16')
+            : '16';
 
-    function place() {
-      const r  = ref.getBoundingClientRect();
-      const pr = popup.getBoundingClientRect();
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const M  = 12;                          // отступ от края экрана
+          const items = refs.map(r => `
+            <div class="reference-popup-item">
+              <div class="reference-popup-image">
+                <img src="${escapeAttr(r.reference_image || '')}"
+                     alt="" draggable="false">
+              </div>
+              ${r.reference_text ? `
+                <div class="reference-popup-body">
+                  <p class="reference-popup-text">${escapeHtml(r.reference_text)}</p>
+                </div>` : ''}
+            </div>
+          `).join('');
 
-      // Пробуем справа от бейджа
-      let left = r.right + 10;
-      let top  = r.top + r.height / 2 - pr.height / 2;
+          const el = document.createElement('div');
+          el.className = 'reference-popup';
+          el.style.setProperty('--grid-count', gridCount);   // ← новая строка
+          el.innerHTML = `<div class="reference-popup-list">${items}</div>`;
+          document.body.appendChild(el);
+          return el;
+        }
 
-      // Если справа не влезает — слева от бейджа
-      if (left + pr.width > vw - M) {
-        left = r.left - pr.width - 10;
-      }
-      // Если и слева не влезает — по центру над бейджем
-      if (left < M) {
-        left = Math.max(M, Math.min(vw - pr.width - M,
-                     r.left + r.width / 2 - pr.width / 2));
-      }
+        function place() {
+          const card = ref.closest('.card');
+          if (!card) return;
 
-      // Ограничение по вертикали
-      top = Math.max(M, Math.min(vh - pr.height - M, top));
+          const cr = card.getBoundingClientRect();
+          const pr = popup.getBoundingClientRect();
+          const vw = window.innerWidth;
+          const vh = window.innerHeight;
+          const M   = 12;
+          const GAP = 12;
 
-      popup.style.left = left + 'px';
-      popup.style.top  = top  + 'px';
-    }
+          let left = cr.right + GAP;
+          let top  = cr.top;
 
-    function show() {
+          if (left + pr.width > vw - M) {
+            left = cr.left - pr.width - GAP;
+          }
+          if (left < M) {
+            left = Math.max(M, Math.min(vw - pr.width - M,
+                         cr.left + cr.width / 2 - pr.width / 2));
+
+            const belowTop = cr.bottom + GAP;
+            const aboveTop = cr.top - pr.height - GAP;
+
+            if (belowTop + pr.height <= vh - M)      top = belowTop;
+            else if (aboveTop >= M)                  top = aboveTop;
+            else top = Math.max(M, Math.min(vh - pr.height - M, cr.top));
+          }
+
+          top = Math.max(M, Math.min(vh - pr.height - M, top));
+
+          popup.style.left = left + 'px';
+          popup.style.top  = top  + 'px';
+        }
+
+        function show() {
           hide();
           popup = build();
           place();
