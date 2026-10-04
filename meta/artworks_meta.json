@@ -6,7 +6,13 @@
       "alt": "CosmicSymbol",
       "type": "item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+        {
+          "reference_image": "images/references/Avaritia_EndestPearl.gif",
+          "reference_text": "[Avaritia] Endest Pearl"
+        }
+      ]
     },
     {
       "title": "Cosmic Core",
@@ -14,7 +20,13 @@
       "alt": "CosmicCore",
       "type": "item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+        {
+          "reference_image": "images/references/Avaritia_EndestPearl.gif",
+          "reference_text": "[Avaritia] Endest Pearl"
+        }
+      ]
     },
     {
       "title": "Cosmic Mind",
@@ -22,7 +34,13 @@
       "alt": "CosmicMind",
       "type": "item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+        {
+          "reference_image": "images/references/Avaritia_EndestPearl.gif",
+          "reference_text": "[Avaritia] Endest Pearl"
+        }
+      ]
     },
     {
       "title": "Bees Wax Singularity",
@@ -30,7 +48,17 @@
       "alt": "BeesWaxSingularity",
       "type": "animated item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+         {
+          "reference_image": "images/references/Avaritia_Singularity.gif",
+          "reference_text": "[Avaritia] Singularity"
+        },
+        {
+          "reference_image": "images/references/Foresry_BeesWax.png",
+          "reference_text": "[Forestry] Bees Wax"
+        }
+      ]
     },
     {
       "title": "Bees Magic Wax Singularity",
@@ -38,7 +66,17 @@
       "alt": "BeesMagicWaxSingularity",
       "type": "animated item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+         {
+          "reference_image": "images/references/Avaritia_Singularity.gif",
+          "reference_text": "[Avaritia] Singularity"
+        },
+        {
+          "reference_image": "images/references/MagicBees_Wax.png",
+          "reference_text": "[Magic Bees] Wax"
+        }
+      ]
     },
     {
       "title": "Neutronium Singularity",
@@ -46,7 +84,17 @@
       "alt": "NeutroniumSingularity",
       "type": "animated item",
       "size": "16×16",
-      "mod": "Avaritia"
+      "mod": "Avaritia",
+      "references": [
+         {
+          "reference_image": "images/references/Avaritia_Singularity.gif",
+          "reference_text": "[Avaritia] Singularity"
+        },
+        {
+          "reference_image": "images/references/Avaritia_NeutroniumIngot.png",
+          "reference_text": "[Avaritia] Neutronium Ingot"
+        }
+      ]
     },
     {
       "title": "Jelly Crystal",
@@ -54,7 +102,21 @@
       "alt": "JellyCrystal",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+        {
+          "reference_image": "images/references/Aether_SwetJelly1.png",
+          "reference_text": "[The Aether II] Swet Jelly"
+        },
+        {
+          "reference_image": "images/references/Aether_SwetJelly2.png",
+          "reference_text": "[The Aether II] Swet Jelly"
+        },
+        {
+          "reference_image": "images/references/Aether_SwetJelly3.png",
+          "reference_text": "[The Aether II] Swet Jelly"
+        }
+      ]
     },
     {
       "title": "Poisonous Dust",
