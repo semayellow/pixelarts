@@ -78,6 +78,21 @@
             <rect x="8"  y="12" width="3" height="3" fill="currentColor"/>
             <rect x="12" y="12" width="3" height="3" fill="currentColor"/>
           </svg>
+        </button>
+        <button class="block-mode-global" id="blockModeGlobal" type="button"
+                aria-pressed="false"
+                aria-label="Toggle all blocks 3D / 2D"
+                title="Toggle all blocks 3D / 2D">
+          <svg class="icon-cube" viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+            <path d="M8 1 L14 4 L14 12 L8 15 L2 12 L2 4 Z"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 4 L8 7 L14 4 M8 7 L8 15"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <svg class="icon-flat" viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+            <rect x="2" y="2" width="12" height="12"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
         </button>`;
     /* ---------- 3. Дропдауны: моды и размеры ---------- */
     const modSelectRoot = document.getElementById('modFilter');
@@ -121,6 +136,7 @@
     initThemeToggle();
     initGridToggle();
     initReferenceHovers();
+    initBlockModeGlobal();
   }
 
   /* ---------- Шаблон карточки ---------- */
@@ -245,6 +261,15 @@
           baseY = rotY;
         });
 
+        // Сброс позиции при переключении режима 3D
+        cube.addEventListener('blockmode:reset', function () {
+          rotX = START_X;
+          rotY = START_Y;
+          cube.style.transition = 'transform .35s ease';
+          apply();
+          setTimeout(function () { cube.style.transition = ''; }, 400);
+        });
+
         cube.addEventListener('pointermove', function (e) {
           if (!dragging) return;
           rotX = baseX - (e.clientY - startY) * 0.5;
@@ -327,6 +352,12 @@
           const next    = current === '3d' ? '2d' : '3d';
           art.dataset.blockMode = next;
           btn.setAttribute('aria-pressed', String(next === '2d'));
+
+          // Переключились на 3D — сбрасываем позицию куба
+          if (next === '3d') {
+            const cube = art.querySelector('.block-3d');
+            if (cube) cube.dispatchEvent(new CustomEvent('blockmode:reset'));
+          }
         });
       });
     }
@@ -438,6 +469,37 @@
         ref.addEventListener('mouseleave', hide);
         ref.addEventListener('focus',      show);
         ref.addEventListener('blur',       hide);
+      });
+    }
+
+
+    /* ---------- Глобальное переключение всех блоков 3D ↔ 2D ---------- */
+    function initBlockModeGlobal() {
+      const btn = document.getElementById('blockModeGlobal');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const arts = document.querySelectorAll('.art--block');
+        if (!arts.length) return;
+
+        const firstMode = arts[0].dataset.blockMode || '3d';
+        const nextMode  = firstMode === '3d' ? '2d' : '3d';
+
+        arts.forEach(art => {
+          art.dataset.blockMode = nextMode;
+          const cardBtn = art.querySelector('.block-mode-toggle');
+          if (cardBtn) {
+            cardBtn.setAttribute('aria-pressed', String(nextMode === '2d'));
+          }
+
+          if (nextMode === '3d') {
+            const cube = art.querySelector('.block-3d');
+            if (cube) cube.dispatchEvent(new CustomEvent('blockmode:reset'));
+          }
+        });
+
+        btn.setAttribute('aria-pressed', String(nextMode === '2d'));
+        btn.classList.toggle('active', nextMode === '2d');
       });
     }
 

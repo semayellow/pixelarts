@@ -707,16 +707,20 @@ html[data-grid="on"] .art--block[data-block-mode="2d"]::after { opacity: 1; }
   transform: translateY(0);
 }
 
-/* Референсы в ряд (по умолчанию) */
+/* Референсы: 2 колонки, N строк */
 .reference-popup-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
   gap: 10px;
 }
 
+/* Один референс — сетка 1×1 */
+.reference-popup-list:has(> :only-child) {
+  grid-template-columns: 200px;
+}
+
 .reference-popup-item {
-  width: 200px;
+  width: auto;
   flex-shrink: 0;
 }
 
@@ -784,13 +788,43 @@ html[data-grid="on"] .reference-popup-image::after { opacity: 1; }
   letter-spacing: .02em;
 }
 
-/* На узких экранах — столбиком */
+/* На узких экранах — одна колонка */
 @media (max-width: 560px) {
   .reference-popup-list {
-    flex-direction: column;
+    grid-template-columns: 160px;
     gap: 8px;
   }
-  .reference-popup-item {
-    width: 160px;
+  .reference-popup-list:has(> :only-child) {
+    grid-template-columns: 160px;
   }
 }
+
+/* ---------- Block mode (global) toggle ---------- */
+.block-mode-global {
+  width: 36px;
+  align-self: stretch;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+.block-mode-global svg { display: block; }
+.block-mode-global .icon-flat { display: none; }
+
+.block-mode-global:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent-soft);
+}
+.block-mode-global.active {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+}
+.block-mode-global.active .icon-cube { display: none; }
+.block-mode-global.active .icon-flat { display: block; }

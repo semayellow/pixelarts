@@ -117,12 +117,20 @@
     /* ---------- Кнопки типов ---------- */
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        activeType = btn.dataset.filter || 'all';
+        const filter = btn.dataset.filter || 'all';
+
+        // Повторный клик по уже активному фильтру (кроме "all") — сброс на "all"
+        if (filter !== 'all' && filter === activeType) {
+          activeType = 'all';
+        } else {
+          activeType = filter;
+        }
+
         applyFilters();
       });
     });
 
-    applyFilters();
+    applyFilters();        // ← начальный вызов (если его у вас не было)
   }
 
   document.addEventListener('gallery:ready', init);

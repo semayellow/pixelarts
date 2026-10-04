@@ -55,7 +55,7 @@
           "reference_text": "[Avaritia] Singularity"
         },
         {
-          "reference_image": "images/references/Foresry_BeesWax.png",
+          "reference_image": "images/references/Forestry_BeesWax.png",
           "reference_text": "[Forestry] Bees Wax"
         }
       ]
@@ -124,7 +124,17 @@
       "alt": "PoisonousDust",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+       "references": [
+       {
+          "reference_image": "images/references/Minecraft_Redstone.png",
+          "reference_text": "[Minecraft] Redstone"
+       },
+       {
+          "reference_image": "images/references/Aether_SkyrootPoisonBucket.png",
+          "reference_text": "[The Aether II] Skyroot Poison Bucket"
+       }
+      ]
     },
     {
       "title": "Poisonous Ingot",
@@ -132,7 +142,13 @@
       "alt": "PoisonousIngot",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Aether_SkyrootPoisonBucket.png",
+          "reference_text": "[The Aether II] Skyroot Poison Bucket"
+       }
+      ]
     },
     {
       "title": "Cloud Ingot",
@@ -140,7 +156,17 @@
       "alt": "CloudIngot",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Aether_AercloudCold.png",
+          "reference_text": "[The Aether II] Aercloud Cold"
+       },
+         {
+          "reference_image": "images/references/Aether_AerogelBlock.png",
+          "reference_text": "[The Aether II] Aerogel"
+       }
+      ]
     },
     {
       "title": "Cockatrice Feather",
@@ -148,7 +174,13 @@
       "alt": "CockatriceFeather",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Minecraft_Feather.png",
+          "reference_text": "[Minecraft] Feather"
+       }
+      ]
     },
     {
       "title": "Moa Feather",
@@ -156,7 +188,13 @@
       "alt": "MoaFeather",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Minecraft_Feather.png",
+          "reference_text": "[Minecraft] Feather"
+       }
+      ]
     },
     {
       "title": "Gravitite",
@@ -164,7 +202,17 @@
       "alt": "Gravitite",
       "type": "item",
       "size": "16×16",
-      "mod": "The Aether II"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Aether_GravititeOre.png",
+          "reference_text": "[The Aether II] Gravitite Ore"
+       },
+       {
+          "reference_image": "images/references/Aether_ZaniteGemstone.png",
+          "reference_text": "[The Aether II] Zanite Gemstone"
+       }
+      ]
     },
     {
       "title": "Ambrosium Block",
@@ -172,23 +220,17 @@
       "alt": "AmbrosiumBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "The Aether II"
-    },
-    {
-      "title": "Bloody Iridium",
-      "image": "images/items/BloodMagic_BloodyIridium.png",
-      "alt": "BloodyIridium",
-      "type": "item",
-      "size": "16×16",
-      "mod": "BloodMagic"
-    },
-    {
-      "title": "Bloody Iridium Plate",
-      "image": "images/items/BloodMagic_BloodyIridiumPlate.png",
-      "alt": "BloodyIridiumPlate",
-      "type": "item",
-      "size": "16×16",
-      "mod": "BloodMagic"
+      "mod": "The Aether II",
+      "references": [
+       {
+          "reference_image": "images/references/Aether_AmbrosiumShard.png",
+          "reference_text": "[The Aether II] Ambrosium Shard"
+       },
+       {
+          "reference_image": "images/references/Aether_ZaniteBlock.png",
+          "reference_text": "[The Aether II] Zanite Block"
+       }
+      ]
     },
     {
       "title": "Reinforced Organic Slate",
@@ -196,7 +238,17 @@
       "alt": "ReinforcedOrganicSlate",
       "type": "item",
       "size": "16×16",
-      "mod": "BloodMagic"
+      "mod": "Blood Magic",
+      "references": [
+       {
+          "reference_image": "images/references/Aether_Orange.png",
+          "reference_text": "[The Aether II] Orange"
+       },
+       {
+          "reference_image": "images/references/BloodMagic_ReinforcedSlate.png",
+          "reference_text": "[Blood Magic] Reinforced Slate"
+       }
+      ]
     },
     {
       "title": "Universal Catalyst",
@@ -204,15 +256,13 @@
       "alt": "UniversalCatalyst",
       "type": "item",
       "size": "16×16",
-      "mod": "BloodMagic"
-    },
-    {
-      "title": "Necromancy Ingot",
-      "image": "images/items/BloodMagic_NecromancyIngot.png",
-      "alt": "NecromancyIngot",
-      "type": "item",
-      "size": "16×16",
-      "mod": "BloodMagic"
+      "mod": "Blood Magic",
+      "references": [
+       {
+          "reference_image": "images/references/BloodMagic_SimpleCatalyst.png",
+          "reference_text": "[Blood Magic] Simple Catalyst"
+       }
+      ]
     },
     {
       "title": "Demon-protection Belt",
@@ -220,7 +270,7 @@
       "alt": "DemonProtectionBelt",
       "type": "item",
       "size": "32×32",
-      "mod": "BloodMagic"
+      "mod": "Blood Magic"
     },
     {
       "title": "Talisman of a BrokenSoul",
@@ -228,7 +278,17 @@
       "alt": "BloodyIridiumPlate",
       "type": "item",
       "size": "32×32",
-      "mod": "BloodMagic"
+      "mod": "Blood Magic",
+       "references": [
+       {
+          "reference_image": "images/references/MagicBees_SoulWax.png",
+          "reference_text": "[Magic Bees] Soul Wax"
+       },
+       {
+          "reference_image": "images/references/BloodMagic_CrackedRunicPlate.png",
+          "reference_text": "[Blood Magic] Cracked Runic Plate"
+       }
+      ]
     },
     {
       "title": "Amorphous Block",
@@ -236,7 +296,13 @@
       "alt": "AmorphousBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "BloodMagic"
+      "mod": "Blood Magic",
+      "references": [
+       {
+          "reference_image": "images/references/BloodMagic_AmorphousCatalyst.png",
+          "reference_text": "[Blood Magic] Amorphous Catalyst"
+       }
+      ]
     },
     {
       "title": "Microplanet Of Elements",
@@ -244,7 +310,13 @@
       "alt": "MicroplanetOfElements",
       "type": "item",
       "size": "32×32",
-      "mod": "Botania"
+      "mod": "Botania",
+      "references": [
+       {
+          "reference_image": "images/references/Botania_TinyPlanetBlock.png",
+          "reference_text": "[Botania] Tiny Planet Block"
+       }
+      ]
     },
      {
       "title": "Microplanet of the Seasons",
@@ -252,7 +324,13 @@
       "alt": "MicroplanetOfTheSeasons",
       "type": "item",
       "size": "32×32",
-      "mod": "Botania"
+      "mod": "Botania",
+      "references": [
+        {
+           "reference_image": "images/references/Botania_TinyPlanetBlock.png",
+           "reference_text": "[Botania] Tiny Planet Block"
+        }
+      ]
     },
      {
       "title": "The World Base",
@@ -284,7 +362,17 @@
       "alt": "ReinforcedLivingRockBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "Botania"
+      "mod": "Botania",
+      "references": [
+        {
+           "reference_image": "images/references/Botania_ManaPearl.png",
+           "reference_text": "[Botania] Mana Pearl"
+        },
+        {
+           "reference_image": "images/references/Botania_LivingRock.png",
+           "reference_text": "[Botania] Living Rock"
+        }
+      ]
     },
     {
       "title": "Reinforced Living Wood Block",
@@ -292,7 +380,17 @@
       "alt": "ReinforcedLivingWoodBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "Botania"
+      "mod": "Botania",
+      "references": [
+        {
+           "reference_image": "images/references/Botania_ManaPearl.png",
+           "reference_text": "[Botania] Mana Pearl"
+        },
+        {
+           "reference_image": "images/references/Botania_LivingWood.png",
+           "reference_text": "[Botania] Living Wood"
+        }
+      ]
     },
     {
       "title": "Manairidium Block",
@@ -300,7 +398,17 @@
       "alt": "ManairidiumBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "Botania"
+      "mod": "Botania",
+       "references": [
+        {
+           "reference_image": "images/references/Botania_ManadiamondBlock.png",
+           "reference_text": "[Botania] Manadiamond Block"
+        },
+        {
+           "reference_image": "images/references/IndustrialUpgrade_IridiumBlock.png",
+           "reference_text": "[Industrial Upgrade] Iridium Block"
+        }
+      ]
     },
     {
       "title": "Bifröst Block",
@@ -308,7 +416,13 @@
       "alt": "BufrostBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "Botania"
+      "mod": "Botania",
+      "references": [
+        {
+           "reference_image": "images/references/Botania_RainbowRod.png",
+           "reference_text": "[Botania] Rainbow Rod"
+        }
+      ]
     },
     {
       "title": "Forgotten Ingot",
@@ -316,7 +430,13 @@
       "alt": "ForgottenIngot",
       "type": "item",
       "size": "16×16",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+       "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_TheAirOfForgottenLands.png",
+           "reference_text": "[Advanced Botany] The Air of Forgotten Lands"
+        }
+      ]
     },
     {
       "title": "Mithrill Plate",
@@ -324,7 +444,13 @@
       "alt": "MithrillPlate",
       "type": "item",
       "size": "16×16",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+      "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_MithrillIngot.png",
+           "reference_text": "[Advanced Botany] Mithrill Ingot"
+        }
+      ]
     },
      {
       "title": "Mithrill Elementary Nucleus",
@@ -332,7 +458,13 @@
       "alt": "MithrillElementaryNucleus",
       "type": "item",
       "size": "32×32",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+       "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_MithrillIngot.png",
+           "reference_text": "[Advanced Botany] Mithrill Ingot"
+        }
+      ]
     },
     {
       "title": "Nebula Ingot",
@@ -340,7 +472,13 @@
       "alt": "NebulaIngot",
       "type": "item",
       "size": "32×32",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+      "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_NebulaFragment.png",
+           "reference_text": "[Advanced Botany] Nebula Fragment"
+        }
+      ]
     },
     {
       "title": "Nebula Plate",
@@ -348,7 +486,13 @@
       "alt": "NebulaPlate",
       "type": "item",
       "size": "16×16",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+       "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_NebulaFragment.png",
+           "reference_text": "[Advanced Botany] Nebula Fragment"
+        }
+      ]
     },
     {
       "title": "Nebula Block",
@@ -356,7 +500,13 @@
       "alt": "NebulaBlock",
       "type": "block",
       "size": "16×16",
-      "mod": "Advanced Botany"
+      "mod": "Advanced Botany",
+       "references": [
+        {
+           "reference_image": "images/references/AdvancedBotany_NebulaFragment.png",
+           "reference_text": "[Advanced Botany] Nebula Fragment"
+        }
+      ]
     },
     {
       "title": "Elvorium Plate",
@@ -364,7 +514,13 @@
       "alt": "ElvoriumPlate",
       "type": "item",
       "size": "16×16",
-      "mod": "Alfheim"
+      "mod": "Alfheim",
+      "references": [
+        {
+           "reference_image": "images/references/Alfheim_ElvoriumIngot.png",
+           "reference_text": "[Alfheim] Elvorium Ingot"
+        }
+      ]
     },
     {
       "title": "Mauftrium Plate",
@@ -372,15 +528,77 @@
       "alt": "MauftriumPlate",
       "type": "item",
       "size": "16×16",
-      "mod": "Alfheim"
+      "mod": "Alfheim",
+      "references": [
+        {
+           "reference_image": "images/references/Alfheim_MauftriumIngot.png",
+           "reference_text": "[Alfheim] Mauftrium Ingot"
+        }
+      ]
     },
-    {
-      "title": "Matter Rune",
-      "image": "images/items/IndustrialUpgrade_MatterRune.png",
-      "alt": "MatterRune",
+        {
+      "title": "Advanced Carbon Plate",
+      "image": "images/items/IndustrialCraft2_AdvancedCarbonPlate.png",
+      "alt": "AdvancedCarbonPlate",
       "type": "item",
       "size": "16×16",
-      "mod": "Industrial Upgrade"
+      "mod": "Industrial Craft 2",
+       "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_CarbonPlate.png",
+           "reference_text": "[Industrial Craft 2] Carbon Plate"
+        }
+       ]
+    },
+    {
+      "title": "Enriched Сoal Сomponent",
+      "image": "images/items/IndustrialCraft2_EnrichedСoalСomponent.png",
+      "alt": "EnrichedСoalСomponent",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Craft 2",
+       "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_CoalBall.png",
+           "reference_text": "[Industrial Craft 2] Coal Ball"
+        }
+       ]
+    },
+     {
+      "title": "Bloody Iridium",
+      "image": "images/items/BloodMagic_BloodyIridium.png",
+      "alt": "BloodyIridium",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Craft 2",
+       "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_OreIridium.png",
+           "reference_text": "[Industrial Craft 2] Ore Iridium"
+        },
+         {
+           "reference_image": "images/references/BloodMagic_LifeBucket.png",
+           "reference_text": "[Blood Magic] Life Bucket"
+        }
+      ]
+    },
+    {
+      "title": "Bloody Iridium Plate",
+      "image": "images/items/BloodMagic_BloodyIridiumPlate.png",
+      "alt": "BloodyIridiumPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Craft 2",
+      "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_ItemPartIridium.png",
+           "reference_text": "[Industrial Craft 2] Iridium Plate"
+        },
+         {
+           "reference_image": "images/references/BloodMagic_LifeBucket.png",
+           "reference_text": "[Blood Magic] Life Bucket"
+        }
+      ]
     },
     {
       "title": "Melted Iridium Plate",
@@ -388,7 +606,485 @@
       "alt": "MeltedIridiumPlate",
       "type": "item",
       "size": "16×16",
+      "mod": "Industrial Craft 2",
+       "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_ItemPartIridium.png",
+           "reference_text": "[Alfheim] Iridium Plate"
+        },
+         {
+           "reference_image": "images/references/Alfheim_CoalFlame.png",
+           "reference_text": "[Alfheim] Coal Flame"
+        }
+       ]
+    },
+    {
+      "title": "Wyvern Circuit",
+      "image": "images/items_animated/DraconicEvolution_WyvernCircuit.gif",
+      "alt": "WyvernCircuit",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_ItemPartCircuit.png",
+           "reference_text": "[Industrial Craft 2] Circuit"
+        },
+         {
+           "reference_image": "images/references/DraconicEvolution_WyvernCore.png",
+           "reference_text": "[Draconic Evolution] Wyvern Core"
+        }
+       ]
+    },
+    {
+      "title": "Awakened Circuit",
+      "image": "images/items_animated/DraconicEvolution_AwakenedCircuit.gif",
+      "alt": "AwakenedCircuit",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_ItemPartCircuit.png",
+           "reference_text": "[Industrial Craft 2] Circuit"
+        },
+         {
+           "reference_image": "images/references/DraconicEvolution_AwakenedCore.png",
+           "reference_text": "[Draconic Evolution] Awakened Core"
+        }
+       ]
+    },
+    {
+      "title": "Chaotic Circuit",
+      "image": "images/items_animated/DraconicEvolution_ChaoticCircuit.gif",
+      "alt": "ChaoticCircuit",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+        {
+           "reference_image": "images/references/IndustrialCraft2_ItemPartCircuit.png",
+           "reference_text": "[Industrial Craft 2] Circuit"
+        },
+         {
+           "reference_image": "images/references/DraconicEvolution_ChaoticCore.png",
+           "reference_text": "[Draconic Evolution] Chaotic Core"
+        }
+       ]
+    },
+    {
+      "title": "Awakened Particle Accelerator",
+      "image": "images/items_animated/DraconicEvolution_AwakenedParticleAccelerator.gif",
+      "alt": "AwakenedParticleAccelerator",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+          {
+           "reference_image": "images/references/DraconicEvolution_AwakenedCore.png",
+           "reference_text": "[Draconic Evolution] Awakened Core"
+        }
+       ]
+    },
+    {
+      "title": "Chaotic Particle Accelerator",
+      "image": "images/items_animated/DraconicEvolution_ChaoticParticleAccelerator.gif",
+      "alt": "ChaoticParticleAccelerator",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+         {
+           "reference_image": "images/references/DraconicEvolution_ChaoticCore.png",
+           "reference_text": "[Draconic Evolution] Chaotic Core"
+        }
+       ]
+    },
+     {
+      "title": "Draconic Energy Module",
+      "image": "images/items_animated/DraconicEvolution_DraconicEnergyModule.gif",
+      "alt": "DraconicEnergyModule",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+         {
+           "reference_image": "images/references/DraconicEvolution_DraconicCore.png",
+           "reference_text": "[Draconic Evolution] Draconic Core"
+        }
+       ]
+    },
+    {
+      "title": "Wyvern Energy Module",
+      "image": "images/items_animated/DraconicEvolution_WyvernEnergyModule.gif",
+      "alt": "WyvernEnergyModule",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+         {
+           "reference_image": "images/references/DraconicEvolution_WyvernCore.png",
+           "reference_text": "[Draconic Evolution] Wyvern Core"
+        }
+       ]
+    },
+    {
+      "title": "Awakened Energy Module",
+      "image": "images/items_animated/DraconicEvolution_AwakenedEnergyModule.gif",
+      "alt": "EnergyModule",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+         {
+           "reference_image": "images/references/DraconicEvolution_AwakenedCore.png",
+           "reference_text": "[Draconic Evolution] Awakened Core"
+        }
+       ]
+    },
+    {
+      "title": "Chaotic Energy Module",
+      "image": "images/items_animated/DraconicEvolution_ChaoticEnergyModule.gif",
+      "alt": "EnergyModule",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+         {
+           "reference_image": "images/references/DraconicEvolution_ChaoticCore.png",
+           "reference_text": "[Draconic Evolution] Chaotic Core"
+        }
+       ]
+    },
+    {
+      "title": "Chaotic Heart",
+      "image": "images/items/DraconicEvolution_ChaoticHeart.png",
+      "alt": "ChaoticHeart",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Draconic Evolution",
+      "references": [
+        {
+           "reference_image": "images/references/DraconicEvolution_DragonHeart.png",
+           "reference_text": "[Draconic Evolution] Dragon Heart"
+        }
+       ]
+    },
+    {
+      "title": "Chaotic Block",
+      "image": "images/blocks/DraconicEvolution_ChaoticBlock.png",
+      "alt": "ChaoticHeart",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Draconic Evolution"
+    },
+    {
+      "title": "Charged Ripe Honeycombs",
+      "image": "images/items/Forestry_ChargedRipeHoneycombs.png",
+      "alt": "ChargedRipeHoneycombs",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_RipeHoneycombs.png",
+           "reference_text": "[Forestry] Ripe Honeycombs"
+        },
+         {
+           "reference_image": "images/references/Gendustry_Powermodule.png",
+           "reference_text": "[Gendustry] Powermodule"
+        }
+       ]
+    },
+     {
+      "title": "Energetic Printed Circuit Board",
+      "image": "images/items/Forestry_EnergeticPrintedCircuitBoard.png",
+      "alt": "EnergeticPrintedCircuitBoard",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_PrintedCircuitBoard.png",
+           "reference_text": "[Forestry] Printed Circuit Board"
+        },
+         {
+           "reference_image": "images/references/Gendustry_Powermodule.png",
+           "reference_text": "[Gendustry] Powermodule"
+        }
+       ]
+    },
+    {
+      "title": "Elven Electric Tube",
+      "image": "images/items/Forestry_ElvenElectricTube.png",
+      "alt": "ElvenElectricTube",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_ElectricTube.png",
+           "reference_text": "[Forestry] Electric Tube"
+        },
+         {
+           "reference_image": "images/references/Botania_Elementium.png",
+           "reference_text": "[Botania] Elementium"
+        }
+       ]
+    },
+    {
+      "title": "Primal Electric Tube",
+      "image": "images/items/Forestry_PrimalElectricTube.png",
+      "alt": "PrimalElectricTube",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_ElectricTube.png",
+           "reference_text": "[Forestry] Electric Tube"
+        },
+         {
+           "reference_image": "images/references/Botania_Terrasteel.png",
+           "reference_text": "[Botania] Terrasteel"
+        }
+       ]
+    },
+    {
+      "title": "Celestial Electric Tube",
+      "image": "images/items/Forestry_CelestialElectricTube.png",
+      "alt": "CelestialElectricTube",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_ElectricTube.png",
+           "reference_text": "[Forestry] Electric Tube"
+        },
+         {
+           "reference_image": "images/references/DivineRPG_WildwoodFragments.png",
+           "reference_text": "[Divine RPG] Wildwood Fragments"
+        }
+       ]
+    },
+    {
+      "title": "Bees Wax Block",
+      "image": "images/blocks/Forestry_BeesWaxBlock.png",
+      "alt": "BeesWaxBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/Forestry_BeesWax.png",
+           "reference_text": "[Forestry] Bees Wax"
+        }
+       ]
+    },
+    {
+      "title": "Bees Block",
+      "image": "images/blocks/Forestry_BeesBlock.png",
+      "alt": "BeesBlock",
+      "type": "block",
+      "size": "32×32",
+      "mod": "Forestry"
+    },
+    {
+      "title": "Romance Block",
+      "image": "images/blocks/Forestry_RomanceBlock.png",
+      "alt": "RomanceBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Forestry",
+       "references": [
+         {
+           "reference_image": "images/references/ExtraBees_AlvearyMutator.png",
+           "reference_text": "[ExtraBees] Alveary Mutator"
+        }
+       ]
+    },
+    {
+      "title": "Wax Block",
+      "image": "images/blocks/MagicBees_WaxBlock.png",
+      "alt": "WaxBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Magic Bees",
+       "references": [
+         {
+          "reference_image": "images/references/MagicBees_Wax.png",
+          "reference_text": "[Magic Bees] Wax"
+       }
+       ]
+    },
+     {
+      "title": "Concentrated Compounds Block",
+      "image": "images/blocks/MagicBees_ConcentratedCompoundsBlock.png",
+      "alt": "ConcentratedCompoundsBlock",
+      "type": "block",
+      "size": "16×16",
+      "mod": "Magic Bees",
+       "references": [
+         {
+          "reference_image": "images/references/MagicBees_ConcentratedCompound.png",
+          "reference_text": "[Magic Bees] Concentrated Compound"
+        }
+       ]
+    },
+    {
+      "title": "Matter Rune",
+      "image": "images/items/IndustrialUpgrade_MatterRune.png",
+      "alt": "MatterRune",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/Botania_WaterRune.png",
+          "reference_text": "[Botania] Water Rune"
+        }
+       ]
+    },
+    {
+      "title": "Composite Mechanical Component",
+      "image": "images/items/IndustrialUpgrade_CompositeMechanicalComponent.png",
+      "alt": "CompositeMechanicalComponent",
+      "type": "item",
+      "size": "16×16",
       "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Armor Plate",
+      "image": "images/items/IndustrialUpgrade_ArmorPlate.png",
+      "alt": "ArmorPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Technical Plate",
+      "image": "images/items/IndustrialUpgrade_TechnicalPlate.png",
+      "alt": "TechnicalPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Galvanized Technical Plate",
+      "image": "images/items/IndustrialUpgrade_GalvanizedTechnicalPlate.png",
+      "alt": "GalvanizedTechnicalPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Compressed Sunnarium Alloy",
+      "image": "images/items/IndustrialUpgrade_CompressedSunnariumAlloy.png",
+      "alt": "MatterRune",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialCraft2_SannariumAlloy.png",
+          "reference_text": "[Advanced Solar Panels] Sunnarium Alloy"
+        }
+       ]
+    },
+    {
+      "title": "Malachite",
+      "image": "images/items/IndustrialUpgrade_Malachite.png",
+      "alt": "Malachite",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Ruby",
+      "image": "images/items/IndustrialUpgrade_Ruby.png",
+      "alt": "Ruby",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade"
+    },
+    {
+      "title": "Spectral Quantum Helmet Frame",
+      "image": "images/items/IndustrialUpgrade_SpectralQuantumHelmetFrame.png",
+      "alt": "SpectralQuantumHelmetFrame",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialUpgrade_SpectralQuantumHelmet.png",
+          "reference_text": "[Industrial Upgrade] Spectral Quantum Helmet"
+        }
+       ]
+    },
+    {
+      "title": "Spectral Quantum Chestplate Frame",
+      "image": "images/items/IndustrialUpgrade_SpectralQuantumChestplateFrame.png",
+      "alt": "SpectralQuantumChestplateFrame",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialUpgrade_SpectralQuantumChestplate.png",
+          "reference_text": "[Industrial Upgrade] Spectral Quantum Chestplate"
+        }
+       ]
+    },
+    {
+      "title": "Spectral Quantum Legs Frame",
+      "image": "images/items/IndustrialUpgrade_SpectralQuantumLegsFrame.png",
+      "alt": "SpectralQuantumLegsFrame",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialUpgrade_SpectralQuantumLegs.png",
+          "reference_text": "[Industrial Upgrade] Spectral Quantum Legs"
+        }
+       ]
+    },
+    {
+      "title": "Spectral Quantum Boots Frame",
+      "image": "images/items/IndustrialUpgrade_SpectralQuantumBootsFrame.png",
+      "alt": "SpectralQuantumBootsFrame",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialUpgrade_SpectralQuantumBoots.png",
+          "reference_text": "[Industrial Upgrade] Spectral Quantum Boots"
+        }
+       ]
+    },
+    {
+      "title": "High-Tech Block Machine",
+      "image": "images/blocks/IndustrialUpgrade_HighTechBlockMachine.png",
+      "alt": "HighTechBlockMachine",
+      "type": "block",
+      "size": "32×32",
+      "mod": "Industrial Upgrade",
+       "references": [
+         {
+          "reference_image": "images/references/IndustrialCraft2_AdvancedMachineBlock.png",
+          "reference_text": "[Industrial Craft 2] Advanced Block Machine"
+        }
+       ]
+    },
+    {
+      "title": "Necromancy Ingot",
+      "image": "images/items/Witchery_NecromancyIngot.png",
+      "alt": "NecromancyIngot",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Witchery"
     }
   ]
 }
