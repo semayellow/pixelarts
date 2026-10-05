@@ -1079,6 +1079,240 @@
        ]
     },
     {
+      "title": "Binding Base",
+      "image": "images/items/Thaumcraft4_BindingBase.png",
+      "alt": "BindingBase",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+         {
+          "reference_image": "images/references/Thaumcraft4_TripleMeatTreat.png",
+          "reference_text": "[Thaumcraft 4] Triple Meat Treat"
+        },
+         {
+          "reference_image": "images/references/Thaumcraft4_ZombieBrain.png",
+          "reference_text": "[Thaumcraft 4] Zombie Brain"
+        },
+         {
+          "reference_image": "images/references/Thaumcraft4_MagicalFat.png",
+          "reference_text": "[Thaumcraft 4] Magical Fat"
+        },
+         {
+          "reference_image": "images/references/Minecraft_Redstone.png",
+          "reference_text": "[Minecraft] Redstone"
+        }
+       ]
+    },
+    {
+      "title": "Balanced Cluster",
+      "image": "images/items/Thaumcraft4_BalancedCluster.png",
+      "alt": "BindingBase",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+        {
+          "reference_image": "images/references/Thaumcraft4_IronOreCluster.png",
+          "reference_text": "[Thaumcraft 4] Iron Ore Cluster"
+        },
+         {
+          "reference_image": "images/references/Thaumcraft4_BalancedCrystal.png",
+          "reference_text": "[Thaumcraft 4] Balanced Crystal"
+        }
+       ]
+    },
+    {
+      "title": "Magic Reactions Catalyst",
+      "image": "images/items/Thaumcraft4_MagicReactionsCatalyst.png",
+      "alt": "MagicReactionsCatalyst",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+        {
+          "reference_image": "images/references/Thaumcraft4_Nitor.png",
+          "reference_text": "[Thaumcraft 4] Nitor"
+        },
+         {
+          "reference_image": "images/references/Thaumcraft4_BalancedCrystal.png",
+          "reference_text": "[Thaumcraft 4] Balanced Crystal"
+        }
+       ]
+    },
+    {
+      "title": "Elemental Quiver",
+      "image": "images/items/Thaumcraft4_ElementalQuiver.png",
+      "alt": "ElementalQuiver",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Greatwood Stick",
+      "image": "images/items/Thaumcraft4_GreatwoodStick.png",
+      "alt": "GreatwoodStick",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+        {
+          "reference_image": "images/references/Thaumcraft4_Greatwood.png",
+          "reference_text": "[Thaumcraft 4] Greatwood"
+        },
+         {
+          "reference_image": "images/references/Minecraft_Stick.png",
+          "reference_text": "[Minecraft] Stick"
+        }
+       ]
+    },
+    {
+      "title": "Silverwood Stick",
+      "image": "images/items/Thaumcraft4_SilverwoodStick.png",
+      "alt": "SilverwoodStick",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+        {
+          "reference_image": "images/references/Thaumcraft4_Silverwood.png",
+          "reference_text": "[Thaumcraft 4] Silverwood"
+        },
+         {
+          "reference_image": "images/references/Minecraft_Stick.png",
+          "reference_text": "[Minecraft] Stick"
+        }
+       ]
+    },
+    {
+      "title": "Alloyed Shadow Plate",
+      "image": "images/items/Thaumcraft4_AlloyedShadowPlate.png",
+      "alt": "AlloyedShadowPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+        {
+          "reference_image": "images/references/TaintedMagic_ShadowIngot.png",
+          "reference_text": "[Tainted Magic] Shadow Ingot"
+        },
+         {
+          "reference_image": "images/references/TaintedMagic_AlloyedThaumicPlate.png",
+          "reference_text": "[Tainted Magic] Alloyed Thaumic Plate"
+        }
+       ]
+    },
+    {
+      "title": "Alloyed Ichor Plate",
+      "image": "images/items/Thaumcraft4_AlloyedIchorPlate.png",
+      "alt": "AlloyedIchorPlate",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+       "references": [
+          {
+          "reference_image": "images/references/ThaumicTinkerer_IchorIngot.png",
+          "reference_text": "[Thaumic Tinkerer] Ichor Ingot"
+        },
+         {
+          "reference_image": "images/references/TaintedMagic_AlloyedThaumicPlate.png",
+          "reference_text": "[Tainted Magic] Alloyed Thaumic Plate"
+        }
+       ]
+    },
+      {
+      "title": "Sunset Ingot",
+      "image": "images/items/Thaumcraft4_SunsetIngot.png",
+      "alt": "SunsetIngot",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+      {
+      "title": "Hellish Sorrow Ingot",
+      "image": "images/items/Thaumcraft4_HellishSorrowIngot.png",
+      "alt": "HellishSorrowIngot",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Star Ingot",
+      "image": "images/items/Thaumcraft4_StarIngot.png",
+      "alt": "StarIngot",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Mushroom Ingot",
+      "image": "images/items/Thaumcraft4_MushroomIngot.png",
+      "alt": "MushroomIngot",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Thaumcraft 4",
+       "references": [
+          {
+          "reference_image": "images/references/Thaumcraft4_Vishroom.png",
+          "reference_text": "[Thaumcraft 4] Vishroom"
+        }
+       ]
+    },
+    {
+      "title": "Magic Ectoplasm",
+      "image": "images/items/Thaumcraft4_MagicEctoplasm.png",
+      "alt": "MagicEctoplasm",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4",
+      "references": [
+          {
+          "reference_image": "images/references/ThaumicTinkerer_EndCrystal.png",
+          "reference_text": "[Thaumic Tinkerer] End Crystal"
+        }
+       ]
+    },
+    {
+      "title": "Tablet Of Dark Knowledge",
+      "image": "images/items/Thaumcraft4_TabletOfDarkKnowledge.png",
+      "alt": "TabletOfDarkKnowledge",
+      "type": "item",
+      "size": "32×32",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Dark Circuit",
+      "image": "images/items/Thaumcraft4_DarkCircuit.png",
+      "alt": "DarkCircuit",
+      "type": "item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Ancient Circuit",
+      "image": "images/items_animated/Thaumcraft4_AncientCircuit.gif",
+      "alt": "AncientCircuit",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "All Absorbing Fabric",
+      "image": "images/items_animated/Thaumcraft4_AllAbsorbingFabric.gif",
+      "alt": "AllAbsorbingFabric",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
+      "title": "Imp",
+      "image": "images/items_animated/Thaumcraft4_Imp.gif",
+      "alt": "Imp",
+      "type": "animated item",
+      "size": "16×16",
+      "mod": "Thaumcraft 4"
+    },
+    {
       "title": "Necromancy Ingot",
       "image": "images/items/Witchery_NecromancyIngot.png",
       "alt": "NecromancyIngot",
