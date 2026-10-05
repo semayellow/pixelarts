@@ -1,0 +1,94 @@
+{
+  "guis": [
+    {
+      "title": "Arc Furnace",
+      "mod": "Immersive Engineering",
+
+      "before": {
+        "image": "images/guis/ImmersiveEngineering_ArcFurnace/GUI_old.png",
+        "width": 176,
+        "height": 207
+      },
+
+      "after": {
+        "image": "images/guis/ImmersiveEngineering_ArcFurnace/GUI_new.png",
+        "width": 205,
+        "height": 230
+      },
+
+      "after_full": {
+        "image": "images/guis/ImmersiveEngineering_ArcFurnace/GUI_full.png",
+        "width": 205,
+        "height": 230
+      },
+
+      "items": [
+        {
+          "image": "images/guis/ImmersiveEngineering_ArcFurnace/Module.png",
+          "title": "Module: Graphite seal",
+          "size": "16×16"
+        },
+        {
+          "image": "images/guis/ImmersiveEngineering_ArcFurnace/StableElectrode.png",
+          "title": "Stable Electrode",
+          "size": "16×16"
+        }
+      ]
+    },
+    {
+      "title": "Alchemical Furnace",
+      "mod": "Thaumcraft 4",
+
+      "before": {
+        "image": "images/guis/Thaumcraft4_AlchemicalFurnace/GUI_old.png",
+        "width": 176,
+        "height": 165
+      },
+
+      "after": {
+        "image": "images/guis/Thaumcraft4_AlchemicalFurnace/GUI_new.png",
+        "width": 176,
+        "height": 165
+      },
+
+      "after_full": {
+        "image": "images/guis/Thaumcraft4_AlchemicalFurnace/GUI_full.png",
+        "width": 205,
+        "height": 230
+      },
+
+      "items": [
+        {
+          "image": "images/guis/Thaumcraft4_AlchemicalFurnace/Module1.png",
+          "title": "Module: Mining",
+          "size": "16×16"
+        },
+        {
+          "image": "images/guis/Thaumcraft4_AlchemicalFurnace/Module2.png",
+          "title": "Module: Coal catalyst",
+          "size": "16×16"
+        },
+        {
+          "image": "images/guis/Thaumcraft4_AlchemicalFurnace/Module3.png",
+          "title": "Module: Furnace stabilizer",
+          "size": "16×16"
+        }
+      ]
+    }
+  ],
+   "new_guis": [
+    {
+      "title": "Advanced QED",
+      "mod": "Extra Utilities",
+
+      "images": [
+        { "image": "images/guis/ExtraUtilities_AdvancedQED/GUI1.png", "width": 203, "height": 204 },
+        { "image": "images/guis/ExtraUtilities_AdvancedQED/GUI2.gif", "width": 203, "height": 204 }
+      ],
+
+      "items": [
+        { "image": "images/guis/ExtraUtilities_AdvancedQED/Module.png", "title": "Module: Subspace extension", "size": "16×16" }
+      ]
+    }
+  ]
+}

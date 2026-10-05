@@ -11,11 +11,12 @@
   <header class="topbar shell">
     <a class="brand" href="#top" aria-label="Pixel artist home">
       <span class="brand-mark" aria-hidden="true"></span>
-      <span>Portfolio</span>
+      <span>Pixel Arts</span>
     </a>
     <nav class="nav" aria-label="Primary navigation">
-      <a href="#works">Works</a>
       <a href="#about">About</a>
+      <a href="#works">Arts</a>
+      <a href="#guis">GUIs</a>
     </nav>
   </header>
 
@@ -41,7 +42,7 @@
     <section id="works" class="section">
       <div class="section-head">
         <div>
-          <div class="kicker">Arts gallery</div>
+          <div class="kicker">Arts section</div>
           <h2 class="section-title">ITEMS & BLOCKS</h2>
         </div>
         <div class="section-subtitle">Use the filters to turn the page into a compact game-asset catalogue. Each card keeps only the details that matter: title, pixel size, Minecraft reference mod and art type. The block cards can be rotated.</div>
@@ -51,6 +52,31 @@
 
       <div class="gallery" id="gallery"></div>
     </section>
+    <section id="guis" class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">GUIs section</div>
+          <h2 class="section-title">GUI Redesign</h2>
+        </div>
+        <div class="section-subtitle">
+          Side-by-side comparison of the original and redesigned Minecraft
+          interfaces, together with the new items introduced for each GUI.
+        </div>
+      </div>
+
+      <div class="gui-gallery" id="guiGallery"></div>
+    </section>
+     <div class="section-head section-head--nested">
+        <div>
+          <div class="kicker">GUIs section</div>
+          <h2 class="section-title">NEW GUI</h2>
+        </div>
+        <div class="section-subtitle">
+          Custom GUI concepts.
+        </div>
+      </div>
+
+      <div class="gui-gallery" id="newGuiGallery"></div>
   </main>
 
   <footer class="footer shell">
@@ -61,6 +87,9 @@
 
 <script src="scripts/filters.js"></script>
 <script src="scripts/artworks_render.js"></script>
+<script src="scripts/guis_render.js"></script>
+<script src="scripts/edge_ui.js"></script>
+
 
 </body>
 </html>
