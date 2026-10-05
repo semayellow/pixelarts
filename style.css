@@ -1092,8 +1092,9 @@ html[data-grid="on"] .reference-popup-image::after { opacity: 1; }
     grid-template-columns: 1fr;
     gap: 14px;
   }
-  .gui-compare-arrow {
-    transform: rotate(90deg);
+   .gui-compare--pair {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
@@ -1199,11 +1200,6 @@ html[data-grid="on"] .reference-popup-image::after { opacity: 1; }
    как подзаголовок внутри той же секции */
 .section-head--nested .section-title {
   font-size: clamp(24px, 3.4vw, 44px);
-}
-
-/* ---------- Парная раскладка (две картинки без стрелки) ---------- */
-.gui-compare--pair {
-  grid-template-columns: 1fr 1fr;
 }
 
 /* ============================================================

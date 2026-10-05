@@ -23,11 +23,10 @@
     const scrollBtn = buildScrollTopBtn();
     bind(navbar, scrollBtn);
 
-    /* Переносим кнопки (тема / сетка / 2D-3D) в навбар.
-       Кнопки рендерит artworks_render.js, поэтому ждём gallery:ready,
-       а также пробуем сразу — на случай, если они уже в DOM. */
-    moveControlsToNavbar(navbar);
-    document.addEventListener('gallery:ready', () => moveControlsToNavbar(navbar));
+    /* Кнопки рендерит artworks_render.js — ждём gallery:ready,
+       плюс пробуем сразу (на случай, если уже в DOM). */
+    mirrorControlsToNavbar(navbar);
+    document.addEventListener('gallery:ready', () => mirrorControlsToNavbar(navbar));
   }
 
   function buildNavbar() {
@@ -41,7 +40,6 @@
       el.innerHTML = `<div class="topbar shell"></div>`;
     }
 
-    /* Пустой контейнер справа от .nav для контрольных кнопок */
     const topbar = el.querySelector('.topbar');
     if (topbar && !topbar.querySelector('.nav-controls')) {
       const controls = document.createElement('div');
@@ -54,16 +52,55 @@
   }
 
   /* ---------- Перенос контрольных кнопок в навбар ---------- */
-  function moveControlsToNavbar(navbar) {
+const MIRRORED_IDS = ['themeToggle', 'gridToggle', 'blockModeGlobal'];
+
+  function mirrorControlsToNavbar(navbar) {
     const controls = navbar.querySelector('.nav-controls');
     if (!controls) return;
 
-    ['themeToggle', 'gridToggle', 'blockModeGlobal'].forEach(id => {
-      const btn = document.getElementById(id);
-      if (btn && !controls.contains(btn)) {
-        controls.appendChild(btn);
+    MIRRORED_IDS.forEach(id => {
+      const src = document.getElementById(id);
+      if (!src) return;
+
+      let clone = controls.querySelector(`[data-mirror-of="${id}"]`);
+      if (!clone) {
+        clone = src.cloneNode(true);
+        clone.removeAttribute('id');          // id не должен дублироваться
+        clone.dataset.mirrorOf = id;
+
+        clone.addEventListener('click', (e) => {
+          e.preventDefault();
+          src.click();                        // запускаем логику оригинала
+        });
+
+        controls.appendChild(clone);
+
+        /* Первичная синхронизация */
+        syncButtonState(src, clone);
+
+        /* Следим за изменениями оригинала */
+        const obs = new MutationObserver(() => syncButtonState(src, clone));
+        obs.observe(src, { attributes: true, childList: true, subtree: true });
       }
     });
+  }
+   function syncButtonState(src, clone) {
+    if (clone.className !== src.className) {
+      clone.className = src.className;
+    }
+
+    ['aria-pressed', 'aria-label', 'title'].forEach(attr => {
+      const v = src.getAttribute(attr);
+      if (v === null) {
+        if (clone.hasAttribute(attr)) clone.removeAttribute(attr);
+      } else if (clone.getAttribute(attr) !== v) {
+        clone.setAttribute(attr, v);
+      }
+    });
+
+    if (clone.innerHTML !== src.innerHTML) {
+      clone.innerHTML = src.innerHTML;
+    }
   }
 
   /* ---------- Кнопка «наверх» ---------- */
