@@ -1255,12 +1255,17 @@ html[data-theme="white"] .theme-toggle,
 html[data-theme="white"] .reference-popup-image,
 html[data-theme="white"] .gui-image,
 html[data-theme="white"] .gui-item-image { background-color: #ffffff; }
+html[data-theme="white"] .art-cell { background-color: #ffffff; }
+
 
 html[data-theme="black"] .art,
 html[data-theme="black"] .theme-toggle,
 html[data-theme="black"] .reference-popup-image,
 html[data-theme="black"] .gui-image,
 html[data-theme="black"] .gui-item-image { background-color: #000000; }
+html[data-theme="black"] .art-cell { background-color: #000000; }
+html[data-theme="green"] .art-cell { background-color: var(--panel); }
+
 
 html[data-theme="green"] .art,
 html[data-theme="green"] .theme-toggle,
@@ -1349,11 +1354,13 @@ html[data-theme="green"] .gui-item-image { background-color: var(--panel); }
 
 /* ---------- Cell: image only, no captions ---------- */
 .art-cell {
+  --cell-pad: 8px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
-  padding: 8px;
+  padding: var(--cell-pad);
   background: var(--surface-inner);
   border: 2px solid var(--line);
   transition: border-color .12s ease, transform .12s ease;
@@ -1550,7 +1557,7 @@ html[data-theme="green"] .art-popup-image { background-color: var(--panel); }
       repeat(var(--cols, 1), minmax(64px, 130px));
     gap: 6px;
   }
-  .art-cell { padding: 6px; }
+  .art-cell { --cell-pad: 6px; }
   .art-col-label,
   .art-row-label { font-size: 10px; letter-spacing: .08em; }
 }
@@ -1564,7 +1571,7 @@ html[data-theme="green"] .art-popup-image { background-color: var(--panel); }
       repeat(var(--cols, 1), minmax(52px, 1fr));
     gap: 4px;
   }
-  .art-cell { padding: 4px; }
+  .art-cell { --cell-pad: 4px; }
   .art-col-label,
   .art-row-label { font-size: 9px; }
   .art-popup-list {
