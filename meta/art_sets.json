@@ -1,0 +1,178 @@
+{
+  "sets": [
+    {
+      "id": "bees",
+      "title": "Custom Bees 16x16",
+      "mod": "Forestry",
+
+      "rows": [
+        {
+          "label": "Drone",
+          "items": [
+            {"image": "images/art_sets/bees/PotterDrone.png"},
+            {"image": "images/art_sets/bees/WitchDrone.png"},
+            {"image": "images/art_sets/bees/ArcanaDrone.png"},
+            {"image": "images/art_sets/bees/RoyalDrone.png"},
+            {"image": "images/art_sets/bees/UnstableDrone.png"},
+            {"image": "images/art_sets/bees/TwilightDrone.png"}
+          ]
+        },
+        {
+          "label": "Princess",
+          "items": [
+            {"image": "images/art_sets/bees/PotterPrincess.png"},
+            {"image": "images/art_sets/bees/WitchPrincess.png"},
+            {"image": "images/art_sets/bees/ArcanaPrincess.png"},
+            {"image": "images/art_sets/bees/RoyalPrincess.png"},
+            {"image": "images/art_sets/bees/UnstablePrincess.png"},
+            {"image": "images/art_sets/bees/TwilightPrincess.png"}
+          ]
+        },
+        {
+          "label": "Queen",
+          "items": [
+            {"image": "images/art_sets/bees/PotterQueen.png"},
+            {"image": "images/art_sets/bees/WitchQueen.png"},
+            {"image": "images/art_sets/bees/ArcanaQueen.png"},
+            {"image": "images/art_sets/bees/RoyalQueen.png"},
+            {"image": "images/art_sets/bees/UnstableQueen.png"},
+            {"image": "images/art_sets/bees/TwilightQueen.png"}
+          ]
+        },
+        {
+          "label": "Larva",
+          "items": [
+            {"image": "images/art_sets/bees/PotterLarva.png"},
+            {"image": "images/art_sets/bees/WitchLarva.png"},
+            {"image": "images/art_sets/bees/ArcanaLarva.png"},
+            {"image": "images/art_sets/bees/RoyalLarva.png"},
+            {"image": "images/art_sets/bees/UnstableLarva.png"},
+            {"image": "images/art_sets/bees/TwilightLarva.png"}
+          ]
+        },
+        {
+          "label": "Comb",
+          "items": [
+            {"image": "images/art_sets/bees/PotterCombs.png"},
+            {"image": "images/art_sets/bees/WitchCombs.png"},
+            {"image": "images/art_sets/bees/ArcanaCombs.png"},
+            {"image": "images/art_sets/bees/RoyalCombs.png"},
+            {"image": "images/art_sets/bees/UnstableCombs.png"},
+            {"image": "images/art_sets/bees/TwilightCombs.png"}
+          ]
+        },
+       {
+        "label": "Comb Piece",
+        "items": [
+          {
+            "image": "",
+            "popup": [
+              { "image": "images/art_sets/bees/PotterProduction.png", "title": "Clay vessel", "mod": "Witchery" }
+            ]
+          },
+          {
+            "image": "",
+            "popup": [
+              { "image": "images/art_sets/bees/WitchProduction1.png", "title": "Amber moss", "mod": "Witchery" },
+              { "image": "images/art_sets/bees/WitchProduction2.png", "title": "Belladonna flower", "mod": "Witchery" },
+              { "image": "images/art_sets/bees/WitchProduction3.png", "title": "Water artichoke tuber", "mod": "Witchery" },
+              { "image": "images/art_sets/bees/WitchProduction4.png", "title": "Wolfsbane", "mod": "Witchery" },
+              { "image": "images/art_sets/bees/WitchProduction5.png", "title": "Bitter wormwood", "mod": "Witchery" }
+            ]
+          },
+          {
+            "image": "images/art_sets/bees/ArcanaCombPiece.png",
+            "popup": [
+              { "image": "images/art_sets/bees/ArcanaProduction.png", "title": "Arcanium", "mod": "Divine RPG" }
+            ]
+          },
+          {
+            "image": "images/art_sets/bees/RoyalCombPiece.png",
+            "popup": [
+              { "image": "images/art_sets/bees/RoyalProduction.png", "title": "King Metal Ingot", "mod": "Twilight Forest" }
+            ]
+          },
+          {
+            "image": "images/art_sets/bees/UnstableCombPiece.png",
+            "popup": [
+              { "image": "images/art_sets/bees/UnstableProduction.png", "title": "Unstable Ingot", "mod": "Extra Utilities" }
+            ]
+          },
+          {
+            "image": "",
+            "popup": [
+              { "image": "images/art_sets/bees/TwilightProduction1.png", "title": "Torch Berries", "mod": "Twilight Forest" },
+              { "image": "images/art_sets/bees/TwilightProduction2.png", "title": "Firefly", "mod": "Twilight Forest" },
+              { "image": "images/art_sets/bees/TwilightProduction3.png", "title": "Live Root", "mod": "Twilight Forest" },
+              { "image": "images/art_sets/bees/TwilightProduction4.png", "title": "Raven Feather", "mod": "Twilight Forest" }
+            ]
+          }
+        ]
+      }
+      ]
+    },
+    {
+      "id": "seeds",
+      "title": "Custom Seeds 16x16",
+      "mod": "Magical Crops",
+      "transpose": true,
+      "rows": [
+        {
+          "label": "Seeds",
+          "items": [
+            {"image": "images/art_sets/seeds/GreatwoodSeeds.png"},
+            {"image": "images/art_sets/seeds/SilverwoodSeeds.png"},
+            {"image": "images/art_sets/seeds/WarpwoodSeeds.png"},
+            {"image": "images/art_sets/seeds/TaintedwoodSeeds.png"},
+            {"image": "images/art_sets/seeds/IndustrialSeeds.png"}
+          ]
+        },
+        {
+          "label": "Essense",
+          "items": [
+            {"image": "images/art_sets/seeds/GreatwoodEssense.png"},
+            {"image": "images/art_sets/seeds/SilverwoodEssense.png"},
+            {"image": "images/art_sets/seeds/WarpwoodEssense.png"},
+            {"image": "images/art_sets/seeds/TaintedwoodEssense.png"},
+            {"image": "images/art_sets/seeds/IndustrialEssense.png"}
+          ]
+        },
+        {
+          "label": "Production",
+          "items": [
+            {
+              "image": "images/art_sets/seeds/GreatwoodProduction.png",
+              "popup": [
+                { "image": "images/art_sets/seeds/GreatwoodProduction.png", "title": "Great Wood", "mod": "Thaumcraft 4" }
+              ]
+            },
+            {
+              "image": "images/art_sets/seeds/SilverwoodProduction.png",
+               "popup": [
+                { "image": "images/art_sets/seeds/SilverwoodProduction.png", "title": "Silver Wood", "mod": "Thaumcraft 4" }
+              ]
+            },
+            {
+              "image": "images/art_sets/seeds/WarpwoodProduction.png",
+              "popup": [
+                { "image": "images/art_sets/seeds/WarpwoodProduction.png", "title": "Warp Wood", "mod": "Tainted Magic" }
+              ]
+            },
+            {
+              "image": "images/art_sets/seeds/TaintedwoodProduction.png",
+              "popup": [
+                { "image": "images/art_sets/seeds/TaintedwoodProduction.png", "title": "Tainted Wood", "mod": "Forbidden Magic" }
+              ]
+            },
+            {
+              "image": "images/art_sets/seeds/IndustrialProduction.png",
+              "popup": [
+                { "image": "images/art_sets/seeds/IndustrialProduction.png", "title": "Industrial Ingot", "mod": "Custom" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

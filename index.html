@@ -16,11 +16,13 @@
     <nav class="nav" aria-label="Primary navigation">
       <a href="#about">About</a>
       <a href="#works">Arts</a>
+      <a href="#artsets">Sets</a>
       <a href="#guis">GUIs</a>
     </nav>
   </header>
 
   <main id="top" class="shell">
+
     <section id="about" class="section">
       <div class="section-head">
         <div>
@@ -43,7 +45,7 @@
       <div class="section-head">
         <div>
           <div class="kicker">Arts section</div>
-          <h2 class="section-title">ITEMS & BLOCKS</h2>
+          <h2 class="section-title">ITEMS &amp; BLOCKS</h2>
         </div>
         <div class="section-subtitle">Use the filters to turn the page into a compact game-asset catalogue. Each card keeps only the details that matter: title, pixel size, Minecraft reference mod and art type. The block cards can be rotated.</div>
       </div>
@@ -52,6 +54,26 @@
 
       <div class="gallery" id="gallery"></div>
     </section>
+
+    <!-- ============ NEW SECTION: Art Sets ============ -->
+    <section id="artsets" class="section">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Art sets section</div>
+          <h2 class="section-title">ART SETS</h2>
+        </div>
+        <div class="section-subtitle">
+          Complete themed sets of items and blocks for Minecraft mods.
+          Each row is a stage or variant of the set; each column is a
+          naming family. Empty cells mean the art
+          does not exist yet.
+        </div>
+      </div>
+
+      <div class="art-sets" id="artSets"></div>
+    </section>
+    <!-- ============================================== -->
+
     <section id="guis" class="section">
       <div class="section-head">
         <div>
@@ -65,8 +87,8 @@
       </div>
 
       <div class="gui-gallery" id="guiGallery"></div>
-    </section>
-     <div class="section-head section-head--nested">
+
+      <div class="section-head section-head--nested">
         <div>
           <div class="kicker">GUIs section</div>
           <h2 class="section-title">NEW GUI</h2>
@@ -77,6 +99,8 @@
       </div>
 
       <div class="gui-gallery" id="newGuiGallery"></div>
+    </section>
+
   </main>
 
   <footer class="footer shell">
@@ -87,9 +111,9 @@
 
 <script src="scripts/filters.js"></script>
 <script src="scripts/artworks_render.js"></script>
+<script src="scripts/art_sets_render.js"></script>
 <script src="scripts/guis_render.js"></script>
 <script src="scripts/edge_ui.js"></script>
-
 
 </body>
 </html>
