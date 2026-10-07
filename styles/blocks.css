@@ -1,0 +1,163 @@
+/* ============================================================
+   blocks.css — 3D block previews, per-card and global toggles
+   ============================================================ */
+
+.art--block {
+  perspective: 700px;
+  container-type: size;
+}
+
+/* ---------- 3D cube ---------- */
+.block-3d {
+  --c: 55cqw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--c);
+  height: var(--c);
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateX(-25deg) rotateY(-35deg);
+  transition: transform .35s ease;
+
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+}
+.block-3d.dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.block-3d .face {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #1a1a1a;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+  backface-visibility: hidden;
+}
+
+.block-3d .front  { transform: translateZ(calc(var(--c) /  2)); }
+.block-3d .back   { transform: rotateY(180deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .right  { transform: rotateY( 90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .left   { transform: rotateY(-90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .top    { transform: rotateX( 90deg) translateZ(calc(var(--c) / 2)); }
+.block-3d .bottom { transform: rotateX(-90deg) translateZ(calc(var(--c) / 2)); }
+
+.block-3d .back,
+.block-3d .left   { filter: brightness(.78); }
+.block-3d .right  { filter: brightness(.9);  }
+.block-3d .top    { filter: brightness(1.05); }
+.block-3d .bottom { filter: brightness(.6);  }
+
+/* ---------- Reset button ---------- */
+.block-reset {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: rgba(15, 26, 18, .85);
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity .15s ease, transform .15s ease,
+              border-color .12s ease, color .12s ease, background-color .12s ease;
+}
+.card:hover .block-reset,
+.block-reset:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.block-reset:hover,
+.block-reset:focus-visible {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* ---------- Per-card 3D / 2D toggle ---------- */
+.art--block .block-image { display: none; }
+.art--block .icon-flat   { display: none; }
+
+.art--block[data-block-mode="2d"] .block-3d,
+.art--block[data-block-mode="2d"] .block-reset { display: none; }
+.art--block[data-block-mode="2d"] .block-image { display: block; }
+.art--block[data-block-mode="2d"] .icon-cube   { display: none; }
+.art--block[data-block-mode="2d"] .icon-flat   { display: block; }
+
+.block-mode-toggle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: rgba(15, 26, 18, .85);
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity .15s ease, transform .15s ease,
+              border-color .12s ease, color .12s ease, background-color .12s ease;
+}
+.card:hover .block-mode-toggle,
+.block-mode-toggle:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.block-mode-toggle:hover,
+.block-mode-toggle:focus-visible {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+  outline: none;
+}
+.block-mode-toggle svg { display: block; }
+
+/* ---------- Global toggle ---------- */
+.block-mode-global {
+  width: 36px;
+  align-self: stretch;
+  padding: 0;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+.block-mode-global svg { display: block; }
+.block-mode-global .icon-flat { display: none; }
+
+.block-mode-global:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent-soft);
+}
+.block-mode-global.active {
+  background: var(--accent);
+  color: #1b1208;
+  border-color: var(--accent);
+}
+.block-mode-global.active .icon-cube { display: none; }
+.block-mode-global.active .icon-flat { display: block; }

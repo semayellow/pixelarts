@@ -1,0 +1,27 @@
+/* ============================================================
+   themes.css — html[data-theme] colour overrides
+   ============================================================ */
+
+html[data-theme="white"] .art,
+html[data-theme="white"] .theme-toggle,
+html[data-theme="white"] .reference-popup-image,
+html[data-theme="white"] .gui-image,
+html[data-theme="white"] .gui-item-image,
+html[data-theme="white"] .art-cell,
+html[data-theme="white"] .art-popup-image { background-color: #ffffff; }
+
+html[data-theme="black"] .art,
+html[data-theme="black"] .theme-toggle,
+html[data-theme="black"] .reference-popup-image,
+html[data-theme="black"] .gui-image,
+html[data-theme="black"] .gui-item-image,
+html[data-theme="black"] .art-cell,
+html[data-theme="black"] .art-popup-image { background-color: #000000; }
+
+html[data-theme="green"] .art,
+html[data-theme="green"] .theme-toggle,
+html[data-theme="green"] .reference-popup-image,
+html[data-theme="green"] .gui-image,
+html[data-theme="green"] .gui-item-image,
+html[data-theme="green"] .art-cell,
+html[data-theme="green"] .art-popup-image { background-color: var(--panel); }

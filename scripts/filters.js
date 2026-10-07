@@ -1,6 +1,6 @@
 /* ============================================================
-   filters.js — фильтрация карточек по типу, моду и размеру.
-   Работает после события "gallery:ready".
+   filters.js — filtering cards by type / mod / size.
+   Runs on the "gallery:ready" event.
    ============================================================ */
 
 (function () {
@@ -13,7 +13,7 @@
     const cards   = gallery.querySelectorAll('.card');
     if (!buttons.length) return;
 
-    /* ---------- Заглушка для пустого результата ---------- */
+    /* ---------- Empty-result placeholder ---------- */
     let emptyEl = gallery.querySelector('.empty');
     if (!emptyEl) {
       emptyEl = document.createElement('div');
@@ -23,14 +23,14 @@
       gallery.appendChild(emptyEl);
     }
 
-    /* ---------- Состояние ---------- */
+    /* ---------- State ---------- */
     let activeType = 'all';
     let activeMod  = 'all';
     let activeSize = 'all';
 
-    /* ---------- Дропдауны ---------- */
+    /* ---------- Dropdowns ---------- */
     function setupDropdown(rootId, onChange) {
-      const root  = document.getElementById(rootId);
+      const root = document.getElementById(rootId);
       if (!root) return;
 
       const list  = root.querySelector('.mod-select-list');
@@ -78,17 +78,10 @@
       });
     }
 
-    setupDropdown('modFilter', (val) => {
-      activeMod = val;
-      applyFilters();
-    });
+    setupDropdown('modFilter',  (val) => { activeMod  = val; applyFilters(); });
+    setupDropdown('sizeFilter', (val) => { activeSize = val; applyFilters(); });
 
-    setupDropdown('sizeFilter', (val) => {
-      activeSize = val;
-      applyFilters();
-    });
-
-    /* ---------- Фильтрация ---------- */
+    /* ---------- Filtering ---------- */
     function matchesType(cardType, filter) {
       if (filter === 'all') return true;
       return cardType.trim() === filter;
@@ -114,12 +107,12 @@
       });
     }
 
-    /* ---------- Кнопки типов ---------- */
+    /* ---------- Type buttons ---------- */
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.dataset.filter || 'all';
 
-        // Повторный клик по уже активному фильтру (кроме "all") — сброс на "all"
+        // Re-click on the already active filter (except "all") resets to "all"
         if (filter !== 'all' && filter === activeType) {
           activeType = 'all';
         } else {
@@ -130,7 +123,7 @@
       });
     });
 
-    applyFilters();        // ← начальный вызов (если его у вас не было)
+    applyFilters();
   }
 
   document.addEventListener('gallery:ready', init);

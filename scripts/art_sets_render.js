@@ -1,4 +1,4 @@
-/* ============================================================
+ /* ============================================================
    Art Sets renderer
    Loads meta/art_sets.json and renders each set as a grid:
      rows    -> families (Potter, Witch, Arcana, …)
@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  const DATA_URL = 'meta/art_sets.json';
+  const DATA_URL = 'images/meta/art_sets.json';
 
   /* ---------- Helpers ---------- */
 
@@ -229,24 +229,19 @@ function renderArtSet(set) {
   const families  = deriveFamilies(rows);
   const transpose = !!set.transpose;
 
-  const widest = rows.reduce(
-    (m, r) => Math.max(m, (r.items || []).length), 0
-  );
-  const familyCount = Math.max(families.length, widest, 1);
-
-  /* Ориентация по умолчанию:
-       rows (строки)    = семьи (Potter, Witch, …)
-       columns (столбцы) = стадии (Drone, Princess, …)
-     При transpose: true — наоборот. */
+  /* Orientation:
+       rows (rows)       = families (Potter, Witch, …)
+       columns (columns) = stages   (Drone, Princess, …)
+     With transpose: true — the other way around. */
   const colLabels = transpose ? families : stages;
   const rowLabels = transpose ? stages   : families;
 
   const colCount = Math.max(colLabels.length, 1);
   const rowCount = Math.max(rowLabels.length, 1);
 
-  /* Достаём item по координатам (rowIdx, colIdx) с учётом
-     ориентации. В массиве `rows[s].items[f]` первым индексом
-     всегда идёт стадия, вторым — семья. */
+  /* Fetch item by (rowIdx, colIdx), respecting orientation.
+     In the `rows[s].items[f]` array the first index is always the
+     stage, the second is the family. */
   function getItem(rowIdx, colIdx) {
     const stageIdx  = transpose ? rowIdx : colIdx;
     const familyIdx = transpose ? colIdx : rowIdx;
@@ -254,7 +249,7 @@ function renderArtSet(set) {
     return row && (row.items || [])[familyIdx];
   }
 
-  /* Header: пустой угол + подписи столбцов */
+  /* ---- Header row: empty corner + column labels ---- */
   const headerCells = [
     '<div class="art-corner" aria-hidden="true"></div>',
     ...colLabels.map(
@@ -262,7 +257,7 @@ function renderArtSet(set) {
     )
   ].join('');
 
-  /* Body: одна строка на каждую метку rowLabels */
+  /* ---- Body: row label + data cells, row-major ---- */
   const bodyCells = [];
   for (let r = 0; r < rowCount; r++) {
     bodyCells.push(
@@ -323,6 +318,7 @@ function renderArtSet(set) {
     </article>
   `;
 }
+
   function renderArtSets(sets) {
     const container = document.getElementById('artSets');
     if (!container) return;

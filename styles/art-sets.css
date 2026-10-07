@@ -1,0 +1,345 @@
+/* ============================================================
+   art-sets.css — Art Sets section + popup
+   ============================================================ */
+
+.art-sets {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- Card ---------- */
+.art-set {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  box-shadow:
+    inset 0 0 0 2px var(--surface-inner),
+    0 0 0 1px #000,
+    6px 6px 0 rgba(0, 0, 0, .45);
+}
+
+.art-set-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.art-set-title {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+/* ---------- Grid ---------- */
+.art-set-grid {
+  display: grid;
+  grid-template-columns:
+    max-content
+    repeat(var(--cols, 1), minmax(84px, 160px));
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-col-label,
+.art-row-label {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.art-col-label { text-align: center; padding: 4px 2px; }
+.art-row-label { text-align: center; padding: 0 12px; }
+
+/* ---------- Cell ---------- */
+.art-cell {
+  --cell-pad: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: var(--cell-pad);
+  background: var(--surface-inner);
+  border: 2px solid var(--line);
+  transition: border-color .12s ease, transform .12s ease;
+}
+.art-cell:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.art-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ---------- Interactive cell (has popup) ---------- */
+.art-cell--popup {
+  position: relative;
+  border: 2px dashed var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: border-color .12s ease, color .12s ease, transform .12s ease;
+}
+.art-cell--popup:hover,
+.art-cell--popup:focus-visible {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  transform: translateY(-1px);
+}
+.art-cell--empty {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line-soft);
+  opacity: .5;
+}
+.art-cell--empty:hover {
+  border-color: var(--line);
+  transform: none;
+}
+
+/* ---------- Popup ---------- */
+.art-popup {
+  position: fixed;
+  z-index: 200;
+  pointer-events: none;
+
+  padding: 12px;
+  background: var(--surface);
+  border: 2px solid var(--accent-2);
+
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .16s ease, transform .16s ease;
+}
+.art-popup.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.art-popup-header {
+  color: var(--accent-2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.art-popup-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: calc(160px * 3 + 12px * 2);
+}
+.art-popup-list--2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 160px);
+  gap: 12px;
+  max-width: none;
+}
+.art-popup-list--2x2 .art-popup-item {
+  flex: none;
+  width: auto;
+  max-width: none;
+}
+
+.art-popup-item {
+  flex: 0 0 160px;
+  width: 160px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.art-popup-image {
+  aspect-ratio: 1 / 1;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  border: 2px solid var(--accent-2);
+  overflow: hidden;
+}
+.art-popup-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.art-popup-image--multi {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 6px;
+  place-items: center;
+}
+.art-popup-image--multi img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.art-popup-name {
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .02em;
+  line-height: 1.3;
+  text-align: left;
+  word-break: break-word;
+}
+.art-popup-mod {
+  color: var(--text-strong);
+  font-weight: 400;
+}
+
+/* ============================================================
+   Pixel-grid overlay for Art Set cells and popup images
+   (toggled with the global grid button)
+   ============================================================ */
+
+/* ---------- Art Set cells ---------- */
+.art-cell::after {
+  content: "";
+  position: absolute;
+  inset: var(--cell-pad, 8px);       /* = image inset inside the cell */
+  pointer-events: none;
+  z-index: 3;
+
+  --cell: calc(100% / var(--grid-count, 16));
+  --grid-line: rgba(255, 255, 255, .35);
+
+  background-image:
+    linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to left,   var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to top,    var(--grid-line) 1px, transparent 1px);
+
+  background-size:
+    var(--cell) var(--cell),
+    var(--cell) var(--cell),
+    100% 100%,
+    100% 100%;
+
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+/* Show only on cells that actually display an image */
+html[data-grid="on"] .art-cell:not(.art-cell--empty)::after { opacity: 1; }
+html[data-grid="on"] .art-cell--popup:not(:has(img))::after   { opacity: 0; }
+
+/* ---------- Art Set popup image ---------- */
+.art-popup-image {
+  position: relative;                /* needed for the ::after overlay */
+}
+
+.art-popup-image::after {
+  content: "";
+  position: absolute;
+  inset: 12px;                       /* matches .art-popup-image padding */
+  pointer-events: none;
+  z-index: 3;
+
+  --cell: calc(100% / var(--grid-count, 16));
+  --grid-line: rgba(255, 255, 255, .35);
+
+  background-image:
+    linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to left,   var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to top,    var(--grid-line) 1px, transparent 1px);
+
+  background-size:
+    var(--cell) var(--cell),
+    var(--cell) var(--cell),
+    100% 100%,
+    100% 100%;
+
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+/* Multi-image cells already have their own internal 2-col grid —
+   skip the overlay so we don't span across the gaps. */
+html[data-grid="on"] .art-popup-image:not(.art-popup-image--multi)::after { opacity: 1; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .art-set { padding: 14px; gap: 14px; }
+  .art-set-title { font-size: 15px; }
+  .art-set-grid {
+    grid-template-columns:
+      max-content
+      repeat(var(--cols, 1), minmax(64px, 130px));
+    gap: 6px;
+  }
+  .art-cell { --cell-pad: 6px; }
+  .art-col-label,
+  .art-row-label { font-size: 10px; letter-spacing: .08em; }
+}
+
+@media (max-width: 560px) {
+  .art-set { padding: 12px; gap: 12px; }
+  .art-set-title { font-size: 14px; }
+  .art-set-grid {
+    grid-template-columns:
+      max-content
+      repeat(var(--cols, 1), minmax(52px, 1fr));
+    gap: 4px;
+  }
+  .art-cell { --cell-pad: 4px; }
+  .art-col-label,
+  .art-row-label { font-size: 9px; }
+  .art-popup-list {
+    max-width: calc(130px * 2 + 8px);
+    gap: 8px;
+  }
+  .art-popup-list--2x2 {
+    grid-template-columns: repeat(2, 130px);
+    gap: 8px;
+  }
+  .art-popup-item {
+    flex-basis: 130px;
+    width: 130px;
+    max-width: 130px;
+  }
+}

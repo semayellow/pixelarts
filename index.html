@@ -4,7 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pixel Artist Portfolio</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/topbar.css">
+<link rel="stylesheet" href="styles/filters.css">
+<link rel="stylesheet" href="styles/gallery.css">
+<link rel="stylesheet" href="styles/controls.css">
+<link rel="stylesheet" href="styles/blocks.css">
+<link rel="stylesheet" href="styles/references.css">
+<link rel="stylesheet" href="styles/guis.css">
+<link rel="stylesheet" href="styles/art-sets.css">
+<link rel="stylesheet" href="styles/themes.css">
 </head>
 <body>
 <div class="app-root pixel-grid">
@@ -22,7 +32,6 @@
   </header>
 
   <main id="top" class="shell">
-
     <section id="about" class="section">
       <div class="section-head">
         <div>
@@ -49,13 +58,10 @@
         </div>
         <div class="section-subtitle">Use the filters to turn the page into a compact game-asset catalogue. Each card keeps only the details that matter: title, pixel size, Minecraft reference mod and art type. The block cards can be rotated.</div>
       </div>
-
       <div class="filters" id="filters" role="tablist" aria-label="Filter artworks"></div>
-
       <div class="gallery" id="gallery"></div>
     </section>
 
-    <!-- ============ NEW SECTION: Art Sets ============ -->
     <section id="artsets" class="section">
       <div class="section-head">
         <div>
@@ -65,14 +71,11 @@
         <div class="section-subtitle">
           Complete themed sets of items and blocks for Minecraft mods.
           Each row is a stage or variant of the set; each column is a
-          naming family. Empty cells mean the art
-          does not exist yet.
+          naming family. Empty cells mean the art does not exist yet.
         </div>
       </div>
-
       <div class="art-sets" id="artSets"></div>
     </section>
-    <!-- ============================================== -->
 
     <section id="guis" class="section">
       <div class="section-head">
@@ -85,7 +88,6 @@
           interfaces, together with the new items introduced for each GUI.
         </div>
       </div>
-
       <div class="gui-gallery" id="guiGallery"></div>
 
       <div class="section-head section-head--nested">
@@ -93,14 +95,10 @@
           <div class="kicker">GUIs section</div>
           <h2 class="section-title">NEW GUI</h2>
         </div>
-        <div class="section-subtitle">
-          Custom GUI concepts.
-        </div>
+        <div class="section-subtitle">Custom GUI concepts.</div>
       </div>
-
       <div class="gui-gallery" id="newGuiGallery"></div>
     </section>
-
   </main>
 
   <footer class="footer shell">
@@ -109,11 +107,15 @@
   </footer>
 </div>
 
+<script src="scripts/utils.js"></script>
+<script src="scripts/ui_toggles.js"></script>
+<script src="scripts/block_3d.js"></script>
+<script src="scripts/references.js"></script>
 <script src="scripts/filters.js"></script>
 <script src="scripts/artworks_render.js"></script>
+<script src="scripts/art_sets_popup.js"></script>
 <script src="scripts/art_sets_render.js"></script>
 <script src="scripts/guis_render.js"></script>
 <script src="scripts/edge_ui.js"></script>
-
 </body>
 </html>

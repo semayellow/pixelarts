@@ -1,11 +1,11 @@
-/* ============================================================
+         /* ============================================================
    guis_render.js — загрузка meta/guis_meta.json и рендер:
    • #guiGallery    — карточки Before / After (+ after_full);
    • #newGuiGallery — карточки NEW GUI (просто две картинки).
    ============================================================ */
 
 (function () {
-  const GUIS_DATA_URL = 'meta/guis_meta.json';
+  const GUIS_DATA_URL = 'images/meta/guis.json';
 
   async function init() {
     const galleryEl    = document.getElementById('guiGallery');
